@@ -6,24 +6,25 @@ const RelatedProject = {
 	Projects: [
 		{
 			id: uuidv4(),
-			title: 'Mobile UI',
-			img: '/images/ui-project-2.jpg',
+			title: 'Mobile Application: SafeWebKey',
+			img: '/images/safewebkey-app.png',
 		},
 		{
 			id: uuidv4(),
-			title: 'Web Application',
-			img: '/images/mobile-project-1.jpg',
+			title: 'Mobile Application: Parking User App',
+			img: '/images/parking-user-app.png',
 		},
 		{
 			id: uuidv4(),
-			title: 'UI Design',
-			img: '/images/web-project-1.jpg',
+			title: 'Web Application: TheJointCommission',
+			img: '/images/tjc-web-app.png',
 		},
 		{
 			id: uuidv4(),
-			title: 'Kabul Mobile App UI',
-			img: '/images/mobile-project-2.jpg',
+			title: 'Mobile Application: Partner App',
+			img: '/images/parking-partner-app.png',
 		},
+		
 	],
 };
 
