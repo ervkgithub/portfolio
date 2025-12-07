@@ -8,9 +8,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/forms": "^0.4.0",
     "framer-motion": "^5.5.3",
     "next": "^13.0.5",
+    "nodemailer": "^7.0.11",
     "react": "^18.2.0",
     "react-countup": "^6.1.1",
     "react-dom": "^18.2.0",
