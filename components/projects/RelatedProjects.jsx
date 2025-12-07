@@ -1,42 +1,45 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { projectsData } from '../../data/projectsData';
+import PropTypes from 'prop-types';
 
-const RelatedProject = {
-	title: 'Related Projects',
-	Projects: [
-		{
-			id: 4,
-			title: 'Mobile Application: SafeWebKey',
-			img: '/images/safewebkey-app.png',
-		},
-		{
-			id: 6,
-			title: 'Mobile Application: Parking User App',
-			img: '/images/parking-user-app.png',
-		},
-		{
-			id: 2,
-			title: 'Web Application: TheJointCommission',
-			img: '/images/tjc-web-app.png',
-		},
-		{
-			id: 6,
-			title: 'Mobile Application: Partner App',
-			img: '/images/parking-partner-app.png',
-		},
-		
-	],
-};
+// Function to shuffle array randomly
+function shuffleArray(array) {
+	const shuffled = [...array];
+	for (let i = shuffled.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+	}
+	return shuffled;
+}
 
-function RelatedProjects() {
+function RelatedProjects({ currentProjectId }) {
+	// Filter out the current project and get related projects
+	const relatedProjects = projectsData
+		.filter((project) => project.id !== currentProjectId)
+		.map((project) => ({
+			id: project.id,
+			title: project.title,
+			img: project.img,
+			category: project.category,
+		}));
+
+	// Shuffle and get maximum 4 projects
+	const shuffledProjects = shuffleArray(relatedProjects).slice(0, Math.min(4, relatedProjects.length));
+
+	// Don't render if there are no related projects
+	if (shuffledProjects.length === 0) {
+		return null;
+	}
+
 	return (
 		<div className="mt-10 pt-10 sm:pt-14 sm:mt-20 border-t-2 border-primary-light dark:border-secondary-dark">
 			<p className="font-general-regular text-primary-dark dark:text-primary-light text-3xl font-bold mb-10 sm:mb-14 text-left">
-				{RelatedProject.title}
+				Related Projects
 			</p>
 
 			<div className="grid grid-cols-1 sm:grid-cols-4 gap-10">
-				{RelatedProject.Projects.map((project, index) => {
+				{shuffledProjects.map((project, index) => {
 					return (
 						<Link
 							key={`${project.id}-${index}`}
@@ -59,6 +62,9 @@ function RelatedProjects() {
 									<p className="font-general-medium text-lg md:text-xl text-ternary-dark dark:text-ternary-light">
 										{project.title}
 									</p>
+									<span className="text-sm text-ternary-dark dark:text-ternary-light mt-1">
+										{project.category}
+									</span>
 								</div>
 							</div>
 						</Link>
@@ -68,5 +74,9 @@ function RelatedProjects() {
 		</div>
 	);
 }
+
+RelatedProjects.propTypes = {
+	currentProjectId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+};
 
 export default RelatedProjects;

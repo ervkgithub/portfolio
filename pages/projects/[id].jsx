@@ -96,7 +96,7 @@ function ProjectSingle(props) {
         })}
       </div>
 
-      <RelatedProjects />
+      <RelatedProjects currentProjectId={props.project.id} />
     </div>
   );
 }
