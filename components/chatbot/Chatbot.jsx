@@ -71,7 +71,6 @@ function Chatbot() {
 		'About me',
 		'Total experience',
 		'My skills',
-		'Work Location Preference',
 	];
 
 	const handleQuickQuestion = (question) => {

@@ -51,7 +51,7 @@ function AppHeader() {
               {activeTheme === "dark" ? (
                 <Image
                   src={logoDark}
-                  className="w-36 cursor-pointer"
+                  className="w-36 cursor-pointer relative -left-[22px]"
                   alt="Dark Logo"
                   width={150}
                   height={120}
@@ -59,7 +59,7 @@ function AppHeader() {
               ) : (
                 <Image
                   src={logoLight}
-                  className="w-36 cursor-pointer"
+                  className="w-36 cursor-pointer relative -left-[22px]"
                   alt="Dark Logo"
                   width={150}
                   height={120}
