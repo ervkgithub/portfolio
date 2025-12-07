@@ -8,7 +8,7 @@ function Chatbot() {
 	const [messages, setMessages] = useState([
 		{
 			id: 1,
-			text: "Hello! 👋 I'm here to help answer questions about my experience, skills, and background. Feel free to ask me anything!",
+			text: "Hello! 👋 I'm here to help answer questions about Vijay experience, skills, and background. Feel free to ask me anything!",
 			sender: 'bot',
 			timestamp: new Date(),
 		},
@@ -71,7 +71,7 @@ function Chatbot() {
 		'About me',
 		'Total experience',
 		'My skills',
-		'Expected CTC',
+		'Work Location Preference',
 	];
 
 	const handleQuickQuestion = (question) => {
@@ -114,7 +114,7 @@ function Chatbot() {
 						<div className="bg-indigo-500 text-white p-4 rounded-t-lg flex items-center justify-between">
 							<div className="flex items-center gap-2">
 								<div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-								<h3 className="font-general-medium text-lg">Portfolio Assistant</h3>
+								<h3 className="font-general-medium text-lg">Portfolio Assistant Vijay</h3>
 							</div>
 							<button
 								onClick={() => setIsOpen(false)}
