@@ -58,6 +58,7 @@ function ProjectSingle(props) {
                         }
                         aria-label="Project Website and Phone"
                         target="_blank"
+                        rel="noreferrer"
                       >
                         {info.details}
                       </a>
