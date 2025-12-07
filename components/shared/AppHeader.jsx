@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { FiSun, FiMoon, FiX, FiMenu } from "react-icons/fi";
 import HireMeModal from "../HireMeModal";
@@ -12,6 +13,7 @@ function AppHeader() {
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [activeTheme, setTheme] = useThemeSwitcher();
+  const router = useRouter();
 
   function toggleMenu() {
     if (!showMenu) {
@@ -33,6 +35,27 @@ function AppHeader() {
         .classList.remove("overflow-y-hidden");
       setShowModal(false);
     }
+  }
+
+  function closeMenu() {
+    setShowMenu(false);
+  }
+
+  // Helper function to check if a route is active
+  function isActive(path) {
+    if (path === "/") {
+      return router.pathname === "/";
+    }
+    return router.pathname.startsWith(path);
+  }
+
+  // Helper function to get active link classes
+  function getLinkClasses(path) {
+    const baseClasses = "block text-left text-lg font-medium sm:mx-4 mb-2 sm:py-2 transition-colors duration-200";
+    const activeClasses = isActive(path)
+      ? "text-indigo-600 dark:text-indigo-400 font-semibold"
+      : "text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light";
+    return `${baseClasses} ${activeClasses}`;
   }
 
   return (
@@ -112,18 +135,18 @@ function AppHeader() {
               : "hidden"
           }
         >
-          <div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2">
-            <Link href="/projects" aria-label="Projects">
+          <div className={`${getLinkClasses("/projects")} border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark`}>
+            <Link href="/projects" aria-label="Projects" onClick={closeMenu}>
               Projects
             </Link>
           </div>
-          <div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-            <Link href="/about" aria-label="About Me">
+          <div className={`${getLinkClasses("/about")} border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark`}>
+            <Link href="/about" aria-label="About Me" onClick={closeMenu}>
               About Me
             </Link>
           </div>
-          <div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-            <Link href="/contact" aria-label="Contact">
+          <div className={`${getLinkClasses("/contact")} border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark`}>
+            <Link href="/contact" aria-label="Contact" onClick={closeMenu}>
               Contact
             </Link>
           </div>
@@ -141,20 +164,20 @@ function AppHeader() {
         {/* Header links large screen */}
         <div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none">
           <div
-            className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+            className={getLinkClasses("/about")}
             aria-label="About Me"
           >
             <Link href="/about">About Me</Link>
           </div>
           <div
-            className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+            className={getLinkClasses("/projects")}
             aria-label="Projects"
           >
             <Link href="/projects">Projects</Link>
           </div>
 
           <div
-            className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+            className={getLinkClasses("/contact")}
             aria-label="Contact"
           >
             <Link href="/contact">Contact</Link>
