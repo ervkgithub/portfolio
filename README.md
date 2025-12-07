@@ -2,6 +2,8 @@
 
 A modern, responsive portfolio website built with Next.js, React, and Tailwind CSS. This portfolio showcases projects, skills, experience, and includes interactive features like a chatbot and contact form with email integration.
 
+## Portfolio [Demo URL](https://portfolio-vijay-ai.vercel.app)
+
 ---
 
 ## 📋 Table of Contents
