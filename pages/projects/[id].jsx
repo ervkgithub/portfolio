@@ -32,7 +32,7 @@ function ProjectSingle(props) {
       </div>
 
       {/* Gallery */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-10 mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-10 mt-12">
         {/* Info */}
         <div className="block sm:flex gap-0 sm:gap-10 mt-14">
           <div className="w-full text-left">
@@ -50,13 +50,14 @@ function ProjectSingle(props) {
                     >
                       <span>{info.title}: </span>
                       <a
-                        href="https://github.com/ervkgithub"
+                        href={info.details}
                         className={
                           info.title === "Website" || info.title === "Phone"
                             ? "hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300"
                             : ""
                         }
                         aria-label="Project Website and Phone"
+                        target="_blank"
                       >
                         {info.details}
                       </a>
@@ -80,15 +81,16 @@ function ProjectSingle(props) {
         {props.project.ProjectImages.map((project) => {
           return (
             <div className="mb-10 sm:mb-0" key={project.id}>
-              <Image
-                src={project.img}
-                className="rounded-xl cursor-pointer shadow-lg sm:shadow-none"
-                alt={project.title}
-                key={project.id}
-                layout="responsive"
-                width={100}
-                height={90}
-              />
+              <div className="relative w-full h-[460px] sm:h-[576px] overflow-hidden">
+                <Image
+                  src={project.img}
+                  className="cursor-pointer shadow-lg sm:shadow-none object-cover"
+                  alt={project.title}
+                  key={project.id}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
             </div>
           );
         })}

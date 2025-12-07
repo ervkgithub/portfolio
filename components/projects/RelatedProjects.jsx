@@ -38,14 +38,25 @@ function RelatedProjects() {
 			<div className="grid grid-cols-1 sm:grid-cols-4 gap-10">
 				{RelatedProject.Projects.map((project) => {
 					return (
-						<Image
-							src={project.img}
-							className="rounded-xl cursor-pointer"
-							width="400"
-							height="400"
-							alt={project.title}
+						<div
 							key={project.id}
-						/>
+							className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer bg-secondary-light dark:bg-ternary-dark h-full flex flex-col"
+						>
+							<div className="relative w-full h-[432px] overflow-hidden">
+								<Image
+									src={project.img}
+									className="rounded-t-xl border-none object-cover"
+									alt={project.title}
+									layout="fill"
+									objectFit="cover"
+								/>
+							</div>
+							<div className="text-center px-4 py-6 flex-grow flex flex-col justify-center">
+								<p className="font-general-medium text-lg md:text-xl text-ternary-dark dark:text-ternary-light">
+									{project.title}
+								</p>
+							</div>
+						</div>
 					);
 				})}
 			</div>

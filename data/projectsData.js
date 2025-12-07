@@ -3,58 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 export const projectsData = [
 	{
 		id: 1,
-		title: 'The Joint Commission',
-		url: 'https://www.jointcommission.org/en',
-		category: 'Web Application',
-		img: '/images/tjc-web-app.png',
-		ProjectHeader: {
-			title: 'The Joint Commission',
-			publishDate: 'March 10, 2025',
-			tags: 'UI / Frontend',
-		},
-		ProjectImages: [
-			{
-				id: uuidv4(),
-				title: 'The Joint Commission Desktop Design',
-				img: '/images/tjc-web-app.png',
-			},
-		],
-		ProjectInfo: {
-			ClientHeading: 'About Client',
-			CompanyInfo: [
-				{
-					id: uuidv4(),
-					title: 'The Joint Commission',
-					details: 'The Joint Commission is a United States-based nonprofit tax-exempt 501 organization that accredits more than 22,000 US health care organizations and programs. The international branch accredits medical services from around the world.',
-				},
-				{
-					id: uuidv4(),
-					title: 'Website',
-					details: 'https://www.jointcommission.org/en',
-				},
-			],
-			Technologies: [
-				{
-					title: 'Tools & Technologies',
-					techs: [
-						'Next.js',
-						'React.js',
-						'TailwindCSS',
-						'TypeScript',
-						'Shadcn/UI',
-						'TailwindCSS',
-						'Figma',
-						'JavaScript',
-						'Sitecore XMC',
-						'Micro Front-end',
-						'AI',
-					],
-				},
-			],
-		},
-	},
-	{
-		id: 2,
 		title: 'Baylor Scott & White Health',
 		url: 'https://www.bswhealth.com/',
 		category: 'Web Application',
@@ -106,21 +54,21 @@ export const projectsData = [
 		},
 	},
 	{
-		id: 3,
-		title: 'ChexSystems Credit',
-		url: 'https://www.chexsystems.com/',
+		id: 2,
+		title: 'The Joint Commission',
+		url: 'https://www.jointcommission.org/en',
 		category: 'Web Application',
-		img: '/images/chexsystem.png',
+		img: '/images/tjc-web-app.png',
 		ProjectHeader: {
-			title: 'ChexSystems Credit reporting agency',
-			publishDate: 'Jan 10, 2024',
+			title: 'The Joint Commission',
+			publishDate: 'March 10, 2025',
 			tags: 'UI / Frontend',
 		},
 		ProjectImages: [
 			{
 				id: uuidv4(),
-				title: 'ChexSystems Credit reporting agency',
-				img: '/images/chexsystem.png',
+				title: 'The Joint Commission Desktop Design',
+				img: '/images/tjc-web-app.png',
 			},
 		],
 		ProjectInfo: {
@@ -128,13 +76,65 @@ export const projectsData = [
 			CompanyInfo: [
 				{
 					id: uuidv4(),
-					title: 'ChexSystems Credit reporting agency',
-					details: 'ChexSystems is an American check verification service and consumer reporting agency owned by the eFunds subsidiary of Fidelity National Information Services. It provides information about the use of deposit accounts by consumers.',
+					title: 'The Joint Commission',
+					details: 'The Joint Commission is a United States-based nonprofit tax-exempt 501 organization that accredits more than 22,000 US health care organizations and programs. The international branch accredits medical services from around the world.',
 				},
 				{
 					id: uuidv4(),
 					title: 'Website',
-					details: 'https://www.chexsystems.com/',
+					details: 'https://www.jointcommission.org/en',
+				},
+			],
+			Technologies: [
+				{
+					title: 'Tools & Technologies',
+					techs: [
+						'Next.js',
+						'React.js',
+						'TailwindCSS',
+						'TypeScript',
+						'Shadcn/UI',
+						'TailwindCSS',
+						'Figma',
+						'JavaScript',
+						'Sitecore XMC',
+						'Micro Front-end',
+						'AI',
+					],
+				},
+			],
+		},
+	},
+	{
+		id: 3,
+		title: 'Crystal Springs Resort',
+		url: 'https://www.crystalgolfresort.com/',
+		category: 'Web Application',
+		img: '/images/csr-web.png',
+		ProjectHeader: {
+			title: 'Crystal Springs Resort',
+			publishDate: 'March 10, 2023',
+			tags: 'UI / Frontend',
+		},
+		ProjectImages: [
+			{
+				id: uuidv4(),
+				title: 'Crystal Springs Resort',
+				img: '/images/csr-web.png',
+			},
+		],
+		ProjectInfo: {
+			ClientHeading: 'About Client',
+			CompanyInfo: [
+				{
+					id: uuidv4(),
+					title: 'Crystal Springs Resort',
+					details: 'Recognized as the Northeast’s largest four-season golf, spa and culinary resort, Crystal Springs Resort is located in the Kittatinny Mountains of Northern New Jersey and is just 43 miles from New York City. The two hotel resort, featuring Grand Cascades Lodge & Minerals Hotel, is well known for its stellar culinary program. Crystal Springs boasts 10 seasonally inspired dining venues highlighted by 4-star Restaurant Latour and its world famous Wine Spectator Grand Award winning wine cellar. Additionally, the Resort hosts an array of outstanding culinary events including the internationally recognized New Jersey Wine & Food Festival.',
+				},
+				{
+					id: uuidv4(),
+					title: 'Website',
+					details: 'https://www.crystalgolfresort.com/',
 				},
 			],
 			Technologies: [
@@ -142,13 +142,12 @@ export const projectsData = [
 					title: 'Tools & Technologies',
 					techs: [
 						'Html5',
-						'SCSS',
-						'CSS3',
-						'JQuery',
 						'Bootstrap',
-						'Adobe XD',
+						'JQuery',
+						'CSS3',
+						'Figma',
 						'JavaScript',
-						'Sitecore SXA',
+						'Drupal',
 					],
 				},
 			],
@@ -351,20 +350,20 @@ export const projectsData = [
 	},
 	{
 		id: 7,
-		title: 'Crystal Springs Resort',
-		url: 'https://www.crystalgolfresort.com/',
+		title: 'ChexSystems Credit',
+		url: 'https://www.chexsystems.com/',
 		category: 'Web Application',
-		img: '/images/csr-web.png',
+		img: '/images/chexsystem.png',
 		ProjectHeader: {
-			title: 'Crystal Springs Resort',
-			publishDate: 'March 10, 2023',
+			title: 'ChexSystems Credit reporting agency',
+			publishDate: 'Jan 10, 2024',
 			tags: 'UI / Frontend',
 		},
 		ProjectImages: [
 			{
 				id: uuidv4(),
-				title: 'Crystal Springs Resort',
-				img: '/images/csr-web.png',
+				title: 'ChexSystems Credit reporting agency',
+				img: '/images/chexsystem.png',
 			},
 		],
 		ProjectInfo: {
@@ -372,13 +371,13 @@ export const projectsData = [
 			CompanyInfo: [
 				{
 					id: uuidv4(),
-					title: 'Crystal Springs Resort',
-					details: 'Recognized as the Northeast’s largest four-season golf, spa and culinary resort, Crystal Springs Resort is located in the Kittatinny Mountains of Northern New Jersey and is just 43 miles from New York City. The two hotel resort, featuring Grand Cascades Lodge & Minerals Hotel, is well known for its stellar culinary program. Crystal Springs boasts 10 seasonally inspired dining venues highlighted by 4-star Restaurant Latour and its world famous Wine Spectator Grand Award winning wine cellar. Additionally, the Resort hosts an array of outstanding culinary events including the internationally recognized New Jersey Wine & Food Festival.',
+					title: 'ChexSystems Credit reporting agency',
+					details: 'ChexSystems is an American check verification service and consumer reporting agency owned by the eFunds subsidiary of Fidelity National Information Services. It provides information about the use of deposit accounts by consumers.',
 				},
 				{
 					id: uuidv4(),
 					title: 'Website',
-					details: 'https://www.crystalgolfresort.com/',
+					details: 'https://www.chexsystems.com/',
 				},
 			],
 			Technologies: [
@@ -386,15 +385,17 @@ export const projectsData = [
 					title: 'Tools & Technologies',
 					techs: [
 						'Html5',
-						'Bootstrap',
-						'JQuery',
+						'SCSS',
 						'CSS3',
-						'Figma',
+						'JQuery',
+						'Bootstrap',
+						'Adobe XD',
 						'JavaScript',
-						'Drupal',
+						'Sitecore SXA',
 					],
 				},
 			],
 		},
 	},
+	
 ];
