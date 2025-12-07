@@ -15,6 +15,7 @@ function AboutClients() {
 					<AboutClientSingle
 						title={client.title}
 						image={client.img}
+						url={client.url}
 						key={client.id}
 					/>
 				))}
