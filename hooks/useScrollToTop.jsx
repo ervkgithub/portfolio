@@ -40,8 +40,9 @@ function useScrollToTop() {
 					width: 40,
 					padding: 7,
 					borderRadius: 50,
-					right: 50,
-					bottom: 50,
+					right: 15,
+					bottom: 100,
+					zIndex:49,
 					display: showScroll ? 'flex' : 'none',
 				}}
 			/>
