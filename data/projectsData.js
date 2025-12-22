@@ -1,58 +1,58 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export const projectsData = [
-	{
-		id: 1,
-		title: 'Baylor Scott & White Health',
-		url: 'https://www.bswhealth.com/',
-		category: 'Web Application',
-		img: '/images/bsw.png',
-		ProjectHeader: {
-			title: 'Baylor Scott & White Health',
-			publishDate: 'Feb 10, 2026',
-			tags: 'UI / Frontend',
-		},
-		ProjectImages: [
-			{
-				id: uuidv4(),
-				title: 'Baylor Scott & White Health',
-				img: '/images/bsw.png',
-			},
-		],
-		ProjectInfo: {
-			ClientHeading: 'About Client',
-			CompanyInfo: [
-				{
-					id: uuidv4(),
-					title: 'Baylor Scott & White Health',
-					details: 'Baylor Scott & White Health is a healthcare system based in Dallas, Texas, United States. Formed in 2013 from the merger of Scott & White Health with Baylor Healthcare System, it became the largest non-profit healthcare system in Texas and one of the largest in the country. Its network contains over 50 hospitals and more than 800 patient care sites. The organization also includes the Baylor Scott.',
-				},
-				{
-					id: uuidv4(),
-					title: 'Website',
-					details: 'https://www.bswhealth.com/',
-				},
-			],
-			Technologies: [
-				{
-					title: 'Tools & Technologies',
-					techs: [
-						'Next.js',
-						'React.js',
-						'TailwindCSS',
-						'TypeScript',
-						'Shadcn/UI',
-						'TailwindCSS',
-						'Figma',
-						'JavaScript',
-						'Sitecore XMC',
-						'Micro Front-end',
-						'AI',
-					],
-				},
-			],
-		},
-	},
+	// {
+	// 	id: 1,
+	// 	title: 'Baylor Scott & White Health',
+	// 	url: 'https://www.bswhealth.com/',
+	// 	category: 'Web Application',
+	// 	img: '/images/bsw.png',
+	// 	ProjectHeader: {
+	// 		title: 'Baylor Scott & White Health',
+	// 		publishDate: 'Feb 10, 2026',
+	// 		tags: 'UI / Frontend',
+	// 	},
+	// 	ProjectImages: [
+	// 		{
+	// 			id: uuidv4(),
+	// 			title: 'Baylor Scott & White Health',
+	// 			img: '/images/bsw.png',
+	// 		},
+	// 	],
+	// 	ProjectInfo: {
+	// 		ClientHeading: 'About Client',
+	// 		CompanyInfo: [
+	// 			{
+	// 				id: uuidv4(),
+	// 				title: 'Baylor Scott & White Health',
+	// 				details: 'Baylor Scott & White Health is a healthcare system based in Dallas, Texas, United States. Formed in 2013 from the merger of Scott & White Health with Baylor Healthcare System, it became the largest non-profit healthcare system in Texas and one of the largest in the country. Its network contains over 50 hospitals and more than 800 patient care sites. The organization also includes the Baylor Scott.',
+	// 			},
+	// 			{
+	// 				id: uuidv4(),
+	// 				title: 'Website',
+	// 				details: 'https://www.bswhealth.com/',
+	// 			},
+	// 		],
+	// 		Technologies: [
+	// 			{
+	// 				title: 'Tools & Technologies',
+	// 				techs: [
+	// 					'Next.js',
+	// 					'React.js',
+	// 					'TailwindCSS',
+	// 					'TypeScript',
+	// 					'Shadcn/UI',
+	// 					'TailwindCSS',
+	// 					'Figma',
+	// 					'JavaScript',
+	// 					'Sitecore XMC',
+	// 					'Micro Front-end',
+	// 					'AI',
+	// 				],
+	// 			},
+	// 		],
+	// 	},
+	// },
 	{
 		id: 2,
 		title: 'The Joint Commission',
