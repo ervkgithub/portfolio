@@ -8,6 +8,7 @@ import HireMeModal from "../HireMeModal";
 import logoLight from "../../public/images/logo-light.png";
 import logoDark from "../../public/images/logo-dark.png";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
+import { trackHireMeClick } from "../../utils/analytics";
 
 function AppHeader() {
   const [showMenu, setShowMenu] = useState(false);
@@ -25,6 +26,8 @@ function AppHeader() {
 
   function showHireMeModal() {
     if (!showModal) {
+      // Track the Hire Me click
+      trackHireMeClick('header');
       document
         .getElementsByTagName("html")[0]
         .classList.add("overflow-y-hidden");

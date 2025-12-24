@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from '../reusable/Button';
 import FormInput from '../reusable/FormInput';
 import { sendEmail } from '../../utils/emailService';
+import { trackContactSubmit } from '../../utils/analytics';
 
 function ContactForm() {
 	const [formData, setFormData] = useState({
@@ -34,31 +35,31 @@ function ContactForm() {
 		setSubmitStatus({ type: null, message: '' });
 
 		try {
+			// Track form submission
+			trackContactSubmit({
+				name: formData.name,
+				email: formData.email,
+				subject: formData.subject,
+				hasMessage: formData.message.length > 0
+			});
+
 			const result = await sendEmail(formData);
 
 			if (result.success) {
 				setSubmitStatus({
 					type: 'success',
-					message: 'Message sent successfully! I will get back to you soon.',
+					message: 'Your message has been sent successfully!',
 				});
-				// Reset form
-				setFormData({
-					name: '',
-					email: '',
-					subject: '',
-					message: '',
-				});
+				setFormData({ name: '', email: '', subject: '', message: '' });
 			} else {
-				setSubmitStatus({
-					type: 'error',
-					message: result.message || 'Failed to send message. Please try again.',
-				});
+				throw new Error('Failed to send email');
 			}
 		} catch (error) {
 			setSubmitStatus({
 				type: 'error',
-				message: 'An error occurred. Please try again later.',
+				message: 'Failed to send message. Please try again later.',
 			});
+			console.error('Error sending email:', error);
 		} finally {
 			setIsSubmitting(false);
 		}

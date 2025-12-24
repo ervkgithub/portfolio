@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FiArrowDownCircle } from "react-icons/fi";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
+import { trackResumeDownload } from "../../utils/analytics";
 
 function AppBanner() {
   const [activeTheme] = useThemeSwitcher();
@@ -48,8 +49,9 @@ function AppBanner() {
           className="flex justify-center sm:block"
         >
           <a
-            download="Vijay-Resume.pdf"
-            href="/files/Vijay-Resume.pdf"
+            download="Vijay-Kumar-Resume.pdf"
+            href="/files/Vijay-Kumar-Resume.pdf"
+            onClick={() => trackResumeDownload()}
             className="font-general-medium flex justify-center items-center w-36 sm:w-48 mt-12 mb-6 sm:mb-0 text-lg border border-indigo-200 dark:border-ternary-dark py-2.5 sm:py-3 shadow-lg rounded-lg bg-indigo-50 focus:ring-1 focus:ring-indigo-900 hover:bg-indigo-500 text-gray-500 hover:text-white duration-500"
             aria-label="Download Resume"
           >
