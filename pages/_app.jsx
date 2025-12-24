@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import { AnimatePresence } from 'framer-motion';
 import DefaultLayout from '../components/layout/DefaultLayout';
 import UseScrollToTop from '../hooks/useScrollToTop';
+import Analytics from '../components/Analytics';
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }) {
 					<Component {...pageProps} />
 				</DefaultLayout>
 				<UseScrollToTop />
+				<Analytics />
 			</div>
 		</AnimatePresence>
 	);
