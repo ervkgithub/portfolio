@@ -1,8 +1,39 @@
+// Send notification to API
+const sendNotification = async (type, data = {}) => {
+  try {
+    await fetch('/api/send-notification', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        type,
+        data: {
+          ...data,
+          page: typeof window !== 'undefined' ? window.location.pathname : '',
+          referrer: document.referrer || 'Direct visit',
+        },
+      }),
+    });
+  } catch (error) {
+    console.error('Error sending notification:', error);
+  }
+};
+
 // Log the pageview with their URL
 export const pageview = (url) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', 'G-SP3KYDLGPD', {
-      page_path: url,
+  if (typeof window !== 'undefined') {
+    // Track in Google Analytics
+    if (window.gtag) {
+      window.gtag('config', 'G-SP3KYDLGPD', {
+        page_path: url,
+      });
+    }
+    
+    // Send notification
+    sendNotification('page_view', {
+      page: url,
+      referrer: document.referrer || 'Direct visit',
     });
   }
 };
@@ -21,26 +52,40 @@ const event = ({ action, category, label, value }) => {
 // ===== CTA TRACKING =====
 
 // Resume Download
-export const trackResumeDownload = () => {
+export const trackResumeDownload = (location = 'unknown') => {
   event({
     action: 'cta_click',
     category: 'engagement',
     label: 'Resume Downloaded',
   });
+  
+  if (typeof window !== 'undefined') {
+    sendNotification('resume_download', {
+      location: location,
+      filename: 'Vijay-Resume.pdf'
+    });
+  }
 };
 
 // Contact Form
 export const trackContactSubmit = (formData) => {
+  const formDataToTrack = {
+    name: formData.name || 'Not provided',
+    email: formData.email || 'Not provided',
+    subject: formData.subject || 'No subject',
+    message: formData.message || 'No message'
+  };
+  
   event({
     action: 'form_submit',
     category: 'engagement',
     label: 'Contact Form Submitted',
-    value: JSON.stringify({
-      name: formData.name,
-      email: formData.email,
-      subject: formData.subject,
-    }),
+    value: JSON.stringify(formDataToTrack),
   });
+  
+  if (typeof window !== 'undefined') {
+    sendNotification('contact', formDataToTrack);
+  }
 };
 
 // Project Interactions
@@ -70,12 +115,19 @@ export const trackNavClick = (section) => {
 };
 
 // Social Media
-export const trackSocialClick = (platform) => {
+export const trackSocialClick = (platform, url = '') => {
   event({
     action: 'social_click',
     category: 'engagement',
     label: `Social: ${platform}`,
   });
+  
+  if (typeof window !== 'undefined') {
+    sendNotification('social_click', {
+      platform: platform,
+      url: url
+    });
+  }
 };
 
 // Email Click
@@ -88,12 +140,19 @@ export const trackEmailClick = (emailType = 'primary') => {
 };
 
 // Hire Me Button
-export const trackHireMeClick = (location) => {
+export const trackHireMeClick = (location = 'unknown') => {
   event({
     action: 'cta_click',
     category: 'engagement',
     label: `Hire Me: ${location}`,
   });
+  
+  if (typeof window !== 'undefined') {
+    sendNotification('hire_me', {
+      location: location,
+      page: window.location.pathname
+    });
+  }
 };
 
 // Chatbot

@@ -4,6 +4,7 @@ import {
 	FiLinkedin,
 } from 'react-icons/fi';
 import AppFooterCopyright from './AppFooterCopyright';
+import { trackSocialClick } from '../../utils/analytics';
 
 const socialLinks = [
 	{
@@ -37,8 +38,14 @@ function AppFooter() {
 							<a
 								href={link.url}
 								target="__blank"
+								rel="noopener noreferrer"
 								key={link.id}
 								className="text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer rounded-lg bg-gray-50 dark:bg-ternary-dark hover:bg-gray-100 shadow-sm p-4 duration-300"
+								onClick={() => {
+									const platform = link.url.includes('github') ? 'GitHub' :
+										link.url.includes('twitter') || link.url.includes('x.com') ? 'Twitter' : 'LinkedIn';
+									trackSocialClick(platform, link.url);
+								}}
 							>
 								<i className="text-xl sm:text-2xl md:text-3xl">
 									{link.icon}
