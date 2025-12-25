@@ -19,12 +19,12 @@ import WPCareyFoundationImage from '../public/images/brands/wpcarey-foundation.s
 export const clientsHeading = 'Some of the brands I worked with';
 
 export const clientsData = [
-	{
-		id: uuidv4(),
-		title: 'BSW',
-		img: BSWImage,
-		url: 'https://www.bswhealth.com',
-	},
+	// {
+	// 	id: uuidv4(),
+	// 	title: 'BSW',
+	// 	img: BSWImage,
+	// 	url: 'https://www.bswhealth.com',
+	// },
 	{
 		id: uuidv4(),
 		title: 'TJC',
