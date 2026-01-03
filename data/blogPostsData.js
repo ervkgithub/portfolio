@@ -9,7 +9,7 @@ export const blogPostsData = [
     slug: 'welcome-to-my-blog',
     image: '/images/blog/blog1.png',
     readingTime: 2,
-    url: 'https://www.linkedin.com/pulse/spec-driven-ai-driven-development-how-senior-frontend-vijay-kumar-cck0',
+    url: 'https://www.linkedin.com/pulse/spec-driven-ai-driven-development-how-senior-frontend-vijay-kumar-cck0c',
   },
   {
     id: '2',
@@ -31,7 +31,7 @@ export const blogPostsData = [
     slug: 'your-post-slug',
     image: '/images/blog/blog3.png', // or URL to image
     readingTime: 2, // estimated reading time in minutes
-    url: 'https://www.linkedin.com/pulse/from-figma-to-deploy-a-practical-front-end-workflow-guide-vijay-kumar-y95g', // Link to LinkedIn post
+    url: 'https://www.linkedin.com/pulse/from-figma-deploy-practical-front-end-workflow-guide-vijay-kumar-odzac', // Link to LinkedIn post
   },
   {
     id: '4',
@@ -42,7 +42,7 @@ export const blogPostsData = [
     slug: 'your-post-slug',
     image: '/images/blog/blog4.png', // or URL to image
     readingTime: 3, // estimated reading time in minutes
-    url: 'https://www.linkedin.com/pulse/start-smart-ship-fast-modern-front-end-kickoff-workflow-vijay-kumar-k7u1', // Link to LinkedIn post
+    url: 'https://www.linkedin.com/pulse/start-smart-ship-fast-modern-front-end-kickoff-workflow-vijay-kumar-l4okc', // Link to LinkedIn post
   },
   {
     id: '5',
@@ -55,5 +55,27 @@ export const blogPostsData = [
     readingTime: 3, // estimated reading time in minutes
     url: 'https://www.linkedin.com/pulse/from-design-dreams-developer-reality-frontend-tale-nextjs-vijay-kumar-rbt7c', // Link to LinkedIn post
   },
+  {
+    id: '6',
+    title: 'Master the art of starting projects right — BA, Design, FE, BE, QA roles explained with examples and practice.',
+    excerpt: 'Master the art of starting projects right — BA, Design, FE, BE, QA roles explained with examples and practice.',
+    content: 'Kickoff sets the tone for the project. Every role matters. Communication & clarity = success',
+    date: '2025-08-28T10:00:00.000Z', // ISO date format
+    slug: 'your-post-slug',
+    image: '/images/blog/blog6.png', // or URL to image
+    readingTime: 2, // estimated reading time in minutes
+    url: 'https://www.linkedin.com/pulse/master-art-starting-projects-right-ba-design-fe-qa-roles-vijay-kumar-pzdic', // Link to LinkedIn post
+  },
+  {
+    id: '7',
+    title: 'Performance Mastery in Headless: Optimizing Next.js with Sitecore XM Cloud for Lightning-Fast Experiences',
+    excerpt: 'Performance Mastery in Headless: Optimizing Next.js with Sitecore XM Cloud for Lightning-Fast Experiences',
+    content: 'XM Cloud and Next.js are performance-friendly by design — but only if you architect them smartly. Every component, page, and request should be intentional. Performance is not a feature — it’s a culture baked into how you build.',
+    date: '2025-08-19T10:00:00.000Z', // ISO date format
+    slug: 'your-post-slug',
+    image: '/images/blog/blog7.png', // or URL to image
+    readingTime: 4, // estimated reading time in minutes
+    url: 'https://www.linkedin.com/pulse/performance-mastery-headless-optimizing-nextjs-sitecore-vijay-kumar-4i5mc', // Link to LinkedIn post
+  }
 ];
 
