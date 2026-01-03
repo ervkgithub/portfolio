@@ -28,7 +28,7 @@ This portfolio website is designed for a Frontend Developer with 9+ years of exp
 
 - **Professional Design**: Modern, clean UI with dark/light mode support
 - **Interactive Chatbot**: Free, keyword-based chatbot answering common questions
-- **Contact Forms**: Email integration for contact form and hire me modal
+- **Contact Forms**: Email integration for contact form and hire Vijay modal
 - **Project Showcase**: Dynamic project filtering and detailed project pages
 - **Responsive**: Fully responsive design for all devices
 - **SEO Optimized**: Meta tags and proper page structure
@@ -70,7 +70,7 @@ This portfolio website is designed for a Frontend Developer with 9+ years of exp
 
 ✅ **Email Integration**
 - Contact form submissions
-- Hire Me modal submissions
+- Hire Vijay modal submissions
 - Gmail integration using Nodemailer
 - HTML email templates
 
@@ -305,14 +305,14 @@ To change the recipient, edit `pages/api/send-email.js` and update the `to` fiel
 ### Step 5: Test
 
 1. Start development server: `npm run dev`
-2. Fill out the contact form or hire me modal
+2. Fill out the contact form or hire Vijay modal
 3. Submit the form
 4. Check your email inbox
 
 ### Email Features
 
 - **Contact Form**: Sends name, email, subject, and message
-- **Hire Me Modal**: Sends name, email, project type, and description
+- **Hire Vijay Modal**: Sends name, email, project type, and description
 - **HTML Email Templates**: Formatted emails with styling
 - **Reply-To**: Set to sender's email for easy replies
 

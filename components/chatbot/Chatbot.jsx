@@ -8,7 +8,7 @@ function Chatbot() {
 	const [messages, setMessages] = useState([
 		{
 			id: 1,
-			text: "Hello! 👋 I'm here to help answer questions about Vijay experience, skills, and background. Feel free to ask me anything!",
+			text: "Hello! 👋 I'm here to help answer questions about Vijay experience, skills, and projects. Feel free to ask me anything!",
 			sender: 'bot',
 			timestamp: new Date(),
 		},
@@ -68,9 +68,12 @@ function Chatbot() {
 	};
 
 	const quickQuestions = [
-		'About me',
+		'About Vijay',
 		'Total experience',
-		'My skills',
+		'Vijay skills',
+		'Contact',
+		'Projects',
+		'Availability',
 	];
 
 	const handleQuickQuestion = (question) => {

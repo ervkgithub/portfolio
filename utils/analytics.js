@@ -156,12 +156,12 @@ export const trackEmailClick = (emailType = 'primary') => {
   });
 };
 
-// Hire Me Button
+// Hire Vijay Button
 export const trackHireMeClick = (location = 'unknown') => {
   event({
     action: 'cta_click',
     category: 'engagement',
-    label: `Hire Me: ${location}`,
+    label: `Hire Vijay: ${location}`,
   });
   
   if (typeof window !== 'undefined') {
