@@ -186,7 +186,7 @@ function AppHeader({ visitor }) {
           <div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark">
             <button
               onClick={showHireMeModal}
-              className="w-[fit-content] font-general-medium sm:hidden block text-left text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300 w-24"
+              className="w-[fit-content] font-general-medium sm:hidden block text-left text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300"
               aria-label="Hire Vijay Button"
             >
               Hire Vijay
