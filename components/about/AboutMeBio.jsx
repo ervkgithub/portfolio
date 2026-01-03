@@ -9,9 +9,9 @@ function AboutMeBio() {
 			<div className="w-full sm:w-1/4 mb-7 sm:mb-0">
 				<Image
 					src="/images/profile.jpg"
-					width={200}
+					width={300}
 					height={200}
-					className=""
+					className="w-full h-auto lg:width-[300px] lg:height-[200px]"
 					alt="Profile Image"
 				/>
 			</div>

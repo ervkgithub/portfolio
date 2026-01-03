@@ -30,11 +30,13 @@ export default function Blog() {
               className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               {post.image && (
-                <div className="h-72 relative">
+                <div className="h-auto lg:h-72 relative">
                   <Image
                     src={post.image}
                     alt={post.title || 'Blog post image'}
                     className="w-full h-full object-cover"
+                    width={600}
+                    height={300}
                   />
                 </div>
               )}

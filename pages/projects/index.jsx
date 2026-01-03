@@ -3,7 +3,7 @@ import ProjectsGrid from '../../components/projects/ProjectsGrid';
 
 function index() {
 	return (
-		<div className="container mx-auto">
+		<div className="container px-4 lg:px-10">
 			<PagesMetaHead title="Projects" />
 
 			<ProjectsGrid />

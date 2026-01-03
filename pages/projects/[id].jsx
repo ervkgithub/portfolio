@@ -7,7 +7,7 @@ import RelatedProjects from "../../components/projects/RelatedProjects";
 
 function ProjectSingle(props) {
   return (
-    <div className="container mx-auto">
+    <div className="container px-4 lg:px-10">
       <PagesMetaHead title={props.project.title} />
 
       {/* Header */}

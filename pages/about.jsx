@@ -13,7 +13,7 @@ function about() {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1, delay: 1 }}
 				exit={{ opacity: 0 }}
-				className="container mx-auto"
+				className="container px-4 lg:px-10"
 			>
 				<AboutMeBio />
 			</motion.div>
@@ -31,7 +31,7 @@ function about() {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1, delay: 1 }}
 				exit={{ opacity: 0 }}
-				className="container mx-auto"
+				className="container px-4 lg:px-10"
 			>
 				<AboutClients />
 			</motion.div>
