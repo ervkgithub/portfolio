@@ -10,7 +10,7 @@ import logoDark from "../../public/images/logo-dark.png";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
 import { trackHireMeClick } from "../../utils/analytics";
 
-function AppHeader() {
+function AppHeader({ visitor }) {
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [activeTheme, setTheme] = useThemeSwitcher();
@@ -93,6 +93,14 @@ function AppHeader() {
               )}
             </Link>
           </div>
+
+          {visitor?.name ? (
+            <div className="hidden md:block ml-4">
+              <p className="text-sm text-secondary-dark dark:text-ternary-light">
+                Welcome, <span className="font-semibold">{visitor.name}</span> — thanks for visiting my profile.
+              </p>
+            </div>
+          ) : null}
 
           {/* Theme switcher small screen */}
           <div
