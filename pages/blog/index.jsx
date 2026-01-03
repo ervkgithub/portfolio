@@ -83,7 +83,7 @@ export default function Blog() {
               No blog posts found
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-6">
-              You haven't created any blog posts yet.
+              You haven&apos;t created any blog posts yet.
             </p>
             <div className="space-y-4">
               <p className="text-gray-500 dark:text-gray-400">
