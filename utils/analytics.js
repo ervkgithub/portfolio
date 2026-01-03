@@ -1,13 +1,16 @@
 // Send notification to API
+// utils/analytics.js
+
+// Send notification to API
 const sendNotification = async (type, data = {}) => {
   try {
-    await fetch('/api/send-notification', {
+    const response = await fetch('/api/send-notification', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        type,
+        type, // This will be 'page_view', 'contact', etc.
         data: {
           ...data,
           page: typeof window !== 'undefined' ? window.location.pathname : '',
@@ -15,12 +18,20 @@ const sendNotification = async (type, data = {}) => {
         },
       }),
     });
+
+    if (!response.ok) {
+      const error = await response.json();
+      console.error('Notification API error:', error);
+      return false;
+    }
+    return true;
   } catch (error) {
     console.error('Error sending notification:', error);
+    return false;
   }
 };
 
-// Log the pageview with their URL
+// Update pageview function to include proper type
 export const pageview = (url) => {
   if (typeof window !== 'undefined') {
     // Track in Google Analytics
@@ -30,13 +41,19 @@ export const pageview = (url) => {
       });
     }
     
-    // Send notification
+    // Send notification with proper type
     sendNotification('page_view', {
       page: url,
       referrer: document.referrer || 'Direct visit',
+      timestamp: new Date().toISOString()
+    }).catch(error => {
+      console.error('Error in pageview tracking:', error);
     });
   }
 };
+
+// ... rest of your analytics.js code remains the same ...
+
 
 // Log specific events
 const event = ({ action, category, label, value }) => {

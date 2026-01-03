@@ -12,6 +12,18 @@ function PagesMetaHead({ title, keywords, description }) {
 			<meta charSet="utf-8" />
 			<link rel="icon" href="/favicon.ico" />
 			<title>{title}</title>
+			{/* Set default dark theme before React hydrates */}
+			<script
+				dangerouslySetInnerHTML={{
+					__html: `
+						(function() {
+							const storedTheme = localStorage.getItem('theme') || 'dark';
+							document.documentElement.classList.remove('light', 'dark');
+							document.documentElement.classList.add(storedTheme);
+						})();
+					`,
+				}}
+			/>
 		</Head>
 	);
 }
