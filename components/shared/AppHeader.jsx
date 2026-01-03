@@ -73,7 +73,7 @@ function AppHeader({ visitor }) {
         {/* Header menu links and small screen hamburger menu */}
         <div className="flex justify-between items-center">
           <div>
-            <Link href="/">
+            <Link href="/" className="block w-[100px] lg:w-[auto]">
               {activeTheme === "dark" ? (
                 <Image
                   src={logoDark}
@@ -95,9 +95,9 @@ function AppHeader({ visitor }) {
           </div>
 
           {visitor?.name ? (
-            <div className="hidden md:block ml-4">
+            <div className="pr-6">
               <p className="text-sm text-secondary-dark dark:text-ternary-light">
-                Welcome, <span className="font-semibold">{visitor.name}</span> — thanks for visiting my profile.
+                Welcome, <span className="font-semibold">{visitor.name}</span>
               </p>
             </div>
           ) : null}
@@ -186,7 +186,7 @@ function AppHeader({ visitor }) {
           <div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark">
             <button
               onClick={showHireMeModal}
-              className="font-general-medium sm:hidden block text-left text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300 w-24"
+              className="w-[fit-content] font-general-medium sm:hidden block text-left text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300 w-24"
               aria-label="Hire Vijay Button"
             >
               Hire Vijay
