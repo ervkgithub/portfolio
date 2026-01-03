@@ -30,7 +30,7 @@ export default function Blog() {
             >
               {post.image && (
                 <div className="h-72 relative">
-                  <img
+                  <Image
                     src={post.image}
                     alt={post.title || 'Blog post image'}
                     className="w-full h-full object-cover"
