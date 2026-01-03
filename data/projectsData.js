@@ -279,7 +279,7 @@ export const projectsData = [
 				{
 					id: uuidv4(),
 					title: 'Website',
-					details: 'https://www.parkgenie.in',
+					details: 'https://play.google.com/store/apps/details?id=com.uweens.parkgenie.pu&pcampaignid=web_share',
 				},
 			],
 			Technologies: [
@@ -328,7 +328,7 @@ export const projectsData = [
 				{
 					id: uuidv4(),
 					title: 'Website',
-					details: 'https://www.parkgenie.in',
+					details: 'https://play.google.com/store/apps/details?id=com.uweens.parkgenie.psp&pcampaignid=web_share',
 				},
 			],
 			Technologies: [

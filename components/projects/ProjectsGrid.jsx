@@ -116,14 +116,14 @@ function ProjectsGrid() {
 				<h3
 					className="
                         font-general-regular 
-                        text-center text-secondary-dark
+                        text-secondary-dark
                         dark:text-ternary-light
                         text-md
                         sm:text-xl
                         mb-3
                         "
 				>
-					Search projects by title or filter by category
+					Search projects by title
 				</h3>
 				<div
 					className="
