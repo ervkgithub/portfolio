@@ -10,11 +10,11 @@ export default function Analytics() {
     process.env.NEXT_PUBLIC_GA_ID ||
     'G-SP3KYDLGPD';
 
-  if (process.env.NODE_ENV !== 'production' || !GA_MEASUREMENT_ID) {
-    return null;
-  }
+  const isEnabled = process.env.NODE_ENV === 'production' && !!GA_MEASUREMENT_ID;
 
   useEffect(() => {
+    if (!isEnabled) return;
+
     const handleRouteChange = (url) => {
       pageview(url);
     };
@@ -30,7 +30,11 @@ export default function Analytics() {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events]);
+  }, [router.events, isEnabled]);
+
+  if (!isEnabled) {
+    return null;
+  }
 
   return (
     <>
