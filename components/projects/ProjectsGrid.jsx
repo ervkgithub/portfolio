@@ -113,7 +113,7 @@ function ProjectsGrid() {
 			</div>
 
 			<div className="mt-10 sm:mt-16">
-				<h3
+				<h2
 					className="
                         font-general-regular 
                         text-secondary-dark
@@ -124,7 +124,7 @@ function ProjectsGrid() {
                         "
 				>
 					Search projects by title
-				</h3>
+				</h2>
 				<div
 					className="
                         flex
@@ -219,7 +219,7 @@ function ProjectsGrid() {
 					<Button 
 						onClick={loadMoreProjects}
 						title="Load More Projects"
-						className="px-8 py-3 text-lg bg-indigo-500 hover:bg-indigo-600 text-white"
+						className="px-8 py-3 text-lg bg-indigo-600 hover:bg-indigo-700 text-white"
 					/>
 				</div>
 			)}

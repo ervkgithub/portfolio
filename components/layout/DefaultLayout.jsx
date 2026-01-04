@@ -32,7 +32,7 @@ const DefaultLayout = ({ children }) => {
 			{isReady && !visitor ? (
 				<VisitorWelcomeModal onComplete={setVisitor} />
 			) : null}
-			<div>{children}</div>
+			<main id="main-content">{children}</main>
 			<AppFooter />
 			<Chatbot />
 		</>

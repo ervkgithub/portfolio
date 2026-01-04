@@ -103,7 +103,8 @@ function AppHeader({ visitor }) {
           ) : null}
 
           {/* Theme switcher small screen */}
-          <div
+          <button
+            type="button"
             onClick={() => setTheme(activeTheme)}
             aria-label="Theme Switcher"
             className="block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
@@ -113,7 +114,7 @@ function AppHeader({ visitor }) {
             ) : (
               <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
             )}
-          </div>
+          </button>
 
           {/* Small screen hamburger menu */}
           <div className="sm:hidden">
@@ -186,7 +187,7 @@ function AppHeader({ visitor }) {
           <div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark">
             <button
               onClick={showHireMeModal}
-              className="w-[fit-content] font-general-medium sm:hidden block text-left text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300"
+              className="w-[fit-content] font-general-medium sm:hidden block text-left text-md bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300"
               aria-label="Hire Vijay Button"
             >
               Hire Vijay
@@ -216,7 +217,7 @@ function AppHeader({ visitor }) {
           <div className="hidden md:flex">
             <button
               onClick={showHireMeModal}
-              className="text-md font-general-medium bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
+              className="text-md font-general-medium bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
               aria-label="Hire Vijay Button"
             >
               Hire Vijay
@@ -224,7 +225,8 @@ function AppHeader({ visitor }) {
           </div>
 
           {/* Theme switcher large screen */}
-          <div
+          <button
+            type="button"
             onClick={() => setTheme(activeTheme)}
             aria-label="Theme Switcher"
             className="ml-8 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
@@ -234,7 +236,7 @@ function AppHeader({ visitor }) {
             ) : (
               <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
             )}
-          </div>
+          </button>
         </div>
       </div>
       <div>
