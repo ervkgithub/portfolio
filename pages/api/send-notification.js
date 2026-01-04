@@ -78,6 +78,26 @@ export default async function handler(req, res) {
       });
     }
 
+    const receivedType = type;
+    const normalizedType = String(type).toLowerCase().trim();
+    const typeAliases = {
+      pageview: 'page_view',
+      'page-view': 'page_view',
+      'page view': 'page_view',
+      resumedownload: 'resume_download',
+      'resume-download': 'resume_download',
+      hireme: 'hire_me',
+      'hire-me': 'hire_me',
+      socialclick: 'social_click',
+      'social-click': 'social_click',
+      projectview: 'project_view',
+      'project-view': 'project_view',
+      aboutview: 'about_view',
+      'about-view': 'about_view',
+    };
+
+    const notificationType = typeAliases[normalizedType] || normalizedType;
+
     const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 
                req.socket?.remoteAddress || 
                'unknown';
@@ -85,7 +105,7 @@ export default async function handler(req, res) {
     const timestamp = new Date().toLocaleString();
     
     // Skip page view notifications if we've seen this page recently
-    if (type === 'page_view') {
+    if (notificationType === 'page_view') {
       const cacheKey = `${ip}-${data.page || ''}`;
       if (pageViewCache.has(cacheKey)) {
         const lastSeen = pageViewCache.get(cacheKey);
@@ -101,7 +121,7 @@ export default async function handler(req, res) {
 
     // Only fetch location for certain events to reduce API calls
     let location = {};
-    if (['resume_download', 'contact', 'hire_me'].includes(type)) {
+    if (['resume_download', 'contact', 'hire_me'].includes(notificationType)) {
       try {
         location = await getLocation(ip);
       } catch (error) {
@@ -114,7 +134,7 @@ export default async function handler(req, res) {
     let subject, text;
     const commonInfo = `\n\n---\nTime: ${timestamp}\nIP: ${ip}\nUser Agent: ${userAgent}\nPage: ${data.page || 'N/A'}\nReferrer: ${data.referrer || 'Direct visit'}`;
     
-    switch (type) {
+    switch (notificationType) {
       case 'resume_download':
         subject = `📄 Resume Downloaded`;
         text = `Someone downloaded your resume!\n\n` +
@@ -201,6 +221,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ 
           success: false, 
           error: 'Invalid notification type',
+          receivedType,
           validTypes: [
             'page_view', 
             'resume_download', 
@@ -214,7 +235,7 @@ export default async function handler(req, res) {
     }
 
     // Only send email for non-page view events
-    if (type !== 'page_view') {
+    if (notificationType !== 'page_view') {
       try {
         const transporter = nodemailer.createTransport({
           host: process.env.EMAIL_HOST || 'smtp.gmail.com',
@@ -241,7 +262,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ 
       success: true,
       message: 'Notification processed successfully',
-      type,
+      type: notificationType,
       ...(Object.keys(location).length > 0 && { location })
     });
 

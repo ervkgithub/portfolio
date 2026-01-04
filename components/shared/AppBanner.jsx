@@ -76,7 +76,7 @@ function AppBanner() {
           }
           alt="Developer"
           className="w-full h-auto"
-          fetchpriority="high"
+          loading="lazy"
           width={970}
           height={500}
         />
