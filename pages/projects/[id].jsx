@@ -12,10 +12,10 @@ function ProjectSingle(props) {
 
       {/* Header */}
       <div>
-        <p className="font-general-medium text-left text-3xl sm:text-4xl font-bold text-primary-dark dark:text-primary-light mt-14 sm:mt-20 mb-7">
+        <p className="font-general-medium text-left text-2xl sm:text-4xl font-bold text-primary-dark dark:text-primary-light mt-4 sm:mt-10 mb-4">
           {props.project.ProjectHeader.title}
         </p>
-        <div className="flex">
+        <div className="flex flex-wrap lg:flex-nowrap gap-3 lg:gap-0">
           <div className="flex items-center mr-10">
             <FiClock className="text-xl text-ternary-dark dark:text-ternary-light" />
             <span className="font-general-regular ml-2 leading-none text-primary-dark dark:text-primary-light">
@@ -32,13 +32,13 @@ function ProjectSingle(props) {
       </div>
 
       {/* Gallery */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-10 mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-10 mt-6">
         {/* Info */}
-        <div className="block sm:flex gap-0 sm:gap-10 mt-14">
+        <div className="block sm:flex gap-0 sm:gap-10">
           <div className="w-full text-left">
             {/* Single project client details */}
-            <div className="mb-7">
-              <p className="font-general-regular text-2xl font-semibold text-secondary-dark dark:text-secondary-light mb-2">
+            <div className="mb-4">
+              <p className="font-general-regular text-xl font-semibold text-secondary-dark dark:text-secondary-light mb-2">
                 {props.project.ProjectInfo.ClientHeading}
               </p>
               <ul className="leading-loose">
@@ -53,7 +53,7 @@ function ProjectSingle(props) {
                         href={info.details}
                         className={
                           info.title === "Website" || info.title === "Phone"
-                            ? "hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300"
+                            ? "underline hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300"
                             : ""
                         }
                         aria-label="Project Website and Phone"
@@ -69,8 +69,8 @@ function ProjectSingle(props) {
             </div>
 
             {/* Single project technologies */}
-            <div className="mb-7">
-              <p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
+            <div className="mb-4">
+              <p className="font-general-regular text-xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
                 {props.project.ProjectInfo.Technologies[0].title}
               </p>
               <p className="font-general-regular text-primary-dark dark:text-ternary-light">
