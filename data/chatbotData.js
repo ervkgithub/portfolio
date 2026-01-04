@@ -77,7 +77,7 @@ Vijay typically respond within 24-48 hours.`,
 • Vijay skills
 • Technical skills
 • Projects
-• Availability
+• Notice period
 • Contact information
 • And more!
 
@@ -112,7 +112,7 @@ export const findAnswer = (userMessage) => {
 • Vijay skills
 • Technical skills
 • Projects
-• Availability
+• Notice period
 • Contact information`;
 };
 

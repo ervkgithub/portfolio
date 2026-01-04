@@ -73,7 +73,7 @@ function Chatbot() {
 		'Vijay skills',
 		'Contact',
 		'Projects',
-		'Availability',
+		'Notice period',
 	];
 
 	const handleQuickQuestion = (question) => {
