@@ -54,7 +54,7 @@ function AppFooter() {
 												? 'Twitter'
 												: 'LinkedIn'
 									}
-									className="text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer rounded-lg bg-transparent dark:bg-transparent hover:bg-gray-100 shadow-sm p-4 duration-300"
+									className="text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer rounded-lg bg-transparent dark:bg-transparent shadow-sm p-4 duration-300"
 									onClick={() => {
 										const platform = link.url.includes('github') ? 'GitHub' :
 											link.url.includes('twitter') || link.url.includes('x.com') ? 'Twitter' : 'LinkedIn';
