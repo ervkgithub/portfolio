@@ -2,11 +2,11 @@
 export const chatbotKnowledge = [
 	{
 		keywords: ['about vijay', 'who vijay', 'introduce vijay', 'tell me about vijay', 'background vijay'],
-		answer: `Vijay is a Senior Frontend Developer with 9+ years of experience in building scalable, high-performing, and SEO-friendly web applications. I specialize in React.js, Next.js, TypeScript, Tailwind CSS, GraphQL, and modern UI frameworks. I've successfully delivered enterprise-grade solutions across domains like eCommerce, Banking, and Healthcare.`,
+		answer: `Vijay is a Senior Frontend Developer with 9+ years of experience in building scalable, high-performing, and SEO-friendly web applications. I specialize in React.js, Next.js, TypeScript, Tailwind CSS, GraphQL, and modern UI frameworks. Vijay has successfully delivered enterprise-grade solutions across domains like eCommerce, Banking, and Healthcare.`,
 	},
 	{
 		keywords: ['experience vijay', 'years vijay', 'total experience vijay', 'how long vijay', 'experience level vijay'],
-		answer: `Vijay has 9+ years of total experience in frontend development. Throughout my career, I've worked on various projects including eCommerce platforms, banking applications, and healthcare systems. I've completed 30+ projects successfully.`,
+		answer: `Vijay has 9+ years of total experience in frontend development. Throughout my career, Vijay has worked on various projects including eCommerce platforms, banking applications, and healthcare systems. I've completed 30+ projects successfully.`,
 	},
 	{
 		keywords: ['skills', 'technologies', 'tech stack', 'what technologies', 'expertise', 'proficient'],
@@ -74,7 +74,7 @@ Vijay typically respond within 24-48 hours.`,
 	{
 		keywords: ['help', 'what can you do', 'capabilities'],
 		answer: `I can help answer questions about:
-• Vijay experience
+• Vijay skills
 • Technical skills
 • Projects
 • Availability
@@ -109,7 +109,7 @@ export const findAnswer = (userMessage) => {
 	
 	// Default response if no match found
 	return `I understand you're asking about "${userMessage}". While I can answer questions about my experience, skills, projects, and background, I might need more specific information. Could you rephrase your question? You can also ask about:
-• Vijay experience
+• Vijay skills
 • Technical skills
 • Projects
 • Availability
