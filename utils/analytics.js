@@ -34,9 +34,14 @@ const sendNotification = async (type, data = {}) => {
 // Update pageview function to include proper type
 export const pageview = (url) => {
   if (typeof window !== 'undefined') {
+    const GA_MEASUREMENT_ID =
+      process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ||
+      process.env.NEXT_PUBLIC_GA_ID ||
+      'G-SP3KYDLGPD';
+
     // Track in Google Analytics
-    if (window.gtag) {
-      window.gtag('config', 'G-SP3KYDLGPD', {
+    if (window.gtag && GA_MEASUREMENT_ID) {
+      window.gtag('config', GA_MEASUREMENT_ID, {
         page_path: url,
       });
     }

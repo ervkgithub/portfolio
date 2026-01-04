@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FiArrowDownCircle } from "react-icons/fi";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
 import { trackResumeDownload } from "../../utils/analytics";
+import Image from "next/image";
 
 function AppBanner() {
   const [activeTheme] = useThemeSwitcher();
@@ -67,7 +68,7 @@ function AppBanner() {
         className="w-full sm:w-2/3 text-right float-right mt-8 sm:mt-0"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={
             activeTheme === "dark"
               ? "/images/developer.svg"
@@ -75,6 +76,9 @@ function AppBanner() {
           }
           alt="Developer"
           className="w-full h-auto"
+          fetchpriority="high"
+          width={970}
+          height={500}
         />
       </motion.div>
     </motion.section>

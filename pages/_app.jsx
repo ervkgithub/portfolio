@@ -1,9 +1,11 @@
 import '../styles/globals.css';
 import { SessionProvider } from 'next-auth/react';
 import { AnimatePresence } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import DefaultLayout from '../components/layout/DefaultLayout';
 import UseScrollToTop from '../hooks/useScrollToTop';
-import Analytics from '../components/Analytics';
+
+const Analytics = dynamic(() => import('../components/Analytics'), { ssr: false });
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (

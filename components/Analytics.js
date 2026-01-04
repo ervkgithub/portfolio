@@ -5,7 +5,14 @@ import { pageview } from '../utils/analytics';
 
 export default function Analytics() {
   const router = useRouter();
-  const GA_MEASUREMENT_ID = 'G-SP3KYDLGPD';
+  const GA_MEASUREMENT_ID =
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ||
+    process.env.NEXT_PUBLIC_GA_ID ||
+    'G-SP3KYDLGPD';
+
+  if (process.env.NODE_ENV !== 'production' || !GA_MEASUREMENT_ID) {
+    return null;
+  }
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -29,18 +36,18 @@ export default function Analytics() {
     <>
       {/* Google Tag Manager */}
       <Script
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
       <Script
         id="gtag-init"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
+            gtag('config', '${GA_MEASUREMENT_ID}', { anonymize_ip: true });
           `,
         }}
       />

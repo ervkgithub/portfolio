@@ -300,7 +300,7 @@ export const projectsData = [
 		},
 	},
 	{
-		id: 6,
+		id: 7,
 		title: 'ParkGenie Partner App',
 		url: 'https://www.parkgenie.in/',
 		category: 'Mobile Application',
@@ -349,7 +349,7 @@ export const projectsData = [
 		},
 	},
 	{
-		id: 7,
+		id: 8,
 		title: 'ChexSystems Credit',
 		url: 'https://www.chexsystems.com/',
 		category: 'Web Application',
