@@ -3,6 +3,7 @@ import { FiArrowDownCircle } from "react-icons/fi";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
 import { trackResumeDownload } from "../../utils/analytics";
 import Image from "next/image";
+import { TypeAnimation } from 'react-type-animation';
 
 function AppBanner() {
   const [activeTheme] = useThemeSwitcher();
@@ -35,9 +36,35 @@ function AppBanner() {
             duration: 0.9,
             delay: 0.2,
           }}
-          className="font-general-medium mt-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center sm:text-left leading-normal text-gray-500 dark:text-gray-200"
+          className="font-general-medium mt-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center sm:text-left leading-normal text-gray-500 dark:text-gray-200 min-h-24 md:min-h-20 lg:min-h-24 xl:min-h-28"
         >
-          A Senior Frontend Developer
+          <TypeAnimation
+            sequence={[
+              "Senior Frontend Engineer | React | Next.js",
+              1500,
+              "Building Scalable, Production-Grade Web Apps",
+              1500,
+              "Frontend System Design & Architecture Expert",
+              1500,
+              "Performance Optimization at Scale",
+              1500,
+              "TypeScript & Modern JavaScript Specialist",
+              1500,
+              "AI-Driven Frontend Experiences",
+              1500,
+              "Integrating AI into Modern Web Applications",
+              1500,
+              "Crafting Intelligent & Adaptive UI Systems",
+              1500,
+              "Scalable UI Architecture for Global Products",
+              1500,
+              "Delivering Seamless & High-Performance UX",
+              1500,
+            ]}
+            wrapper="span"
+            speed={10}
+            repeat={Infinity}
+          />
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}
