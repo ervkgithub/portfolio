@@ -6,9 +6,9 @@ export default async function handler(req, res) {
 	}
 
 	try {
-		const { name, location, emailOrPhone, page, userAgent, createdAt } = req.body;
+		const { name, location, email, phone, page, userAgent, createdAt } = req.body;
 
-		if (!name || !location || !emailOrPhone) {
+		if (!name || !email || !phone) {
 			return res.status(400).json({
 				success: false,
 				message: 'Missing required fields',
@@ -38,7 +38,8 @@ New Portfolio Visitor
 
 Name: ${name}
 Location: ${location}
-Email/Phone: ${emailOrPhone}
+Email: ${email}
+Phone: ${phone}
 
 Page: ${page || 'N/A'}
 Time: ${createdAt || 'N/A'}
@@ -51,7 +52,8 @@ User Agent: ${userAgent || 'N/A'}
 				<div style="background-color: #F3F4F6; padding: 20px; border-radius: 8px; margin: 20px 0;">
 					<p><strong>Name:</strong> ${name}</p>
 					<p><strong>Location:</strong> ${location}</p>
-					<p><strong>Email/Phone:</strong> ${emailOrPhone}</p>
+					<p><strong>Email:</strong> ${email}</p>
+					<p><strong>Phone:</strong> ${phone}</p>
 					<p><strong>Page:</strong> ${page || 'N/A'}</p>
 					<p><strong>Time:</strong> ${createdAt || 'N/A'}</p>
 				</div>

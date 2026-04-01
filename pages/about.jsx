@@ -18,6 +18,15 @@ function about() {
 				<AboutMeBio />
 			</motion.div>
 
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1, delay: 1 }}
+				exit={{ opacity: 0 }}
+				className="container px-4 lg:px-10"
+			>
+				<AboutClients />
+			</motion.div>
+
 			{/** Counter without paddings */}
 			<motion.div
 				initial={{ opacity: 0 }}
@@ -27,14 +36,7 @@ function about() {
 				<AboutCounter />
 			</motion.div>
 
-			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1, delay: 1 }}
-				exit={{ opacity: 0 }}
-				className="container px-4 lg:px-10"
-			>
-				<AboutClients />
-			</motion.div>
+
 		</div>
 	);
 }

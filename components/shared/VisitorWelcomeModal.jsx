@@ -9,9 +9,35 @@ function VisitorWelcomeModal({ onComplete }) {
 	const [mounted, setMounted] = useState(false);
 	const [formData, setFormData] = useState({
 		name: '',
+		email: '',
+		phone: '',
 		location: '',
-		emailOrPhone: '',
 	});
+
+	useEffect(() => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				async (position) => {
+					try {
+						const { latitude, longitude } = position.coords;
+						const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
+						const data = await res.json();
+						const city = data.address?.city || data.address?.town || data.address?.village || '';
+						const country = data.address?.country || '';
+						const locStr = `${city ? city + ', ' : ''}${country}`;
+						setFormData(prev => ({ ...prev, location: locStr || 'Unknown location' }));
+					} catch (e) {
+						setFormData(prev => ({ ...prev, location: 'Unknown location' }));
+					}
+				},
+				() => {
+					setFormData(prev => ({ ...prev, location: 'Location access denied' }));
+				}
+			);
+		} else {
+			setFormData(prev => ({ ...prev, location: 'Geolocation not supported' }));
+		}
+	}, []);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [submitStatus, setSubmitStatus] = useState({ type: null, message: '' });
 
@@ -21,7 +47,7 @@ function VisitorWelcomeModal({ onComplete }) {
 			const existing = localStorage.getItem(STORAGE_KEY);
 			if (existing) {
 				const parsed = JSON.parse(existing);
-				if (parsed && parsed.name && parsed.location && parsed.emailOrPhone) {
+				if (parsed && parsed.name && parsed.email && parsed.phone) {
 					if (onComplete) onComplete(parsed);
 				}
 			}
@@ -53,10 +79,35 @@ function VisitorWelcomeModal({ onComplete }) {
 		setIsSubmitting(true);
 		setSubmitStatus({ type: null, message: '' });
 
+		const { name, email, phone } = formData;
+
+		const cleanName = name.trim();
+		if (!/^[a-zA-Z\s]{3,50}$/.test(cleanName) || cleanName.split(' ').join('').length < 3) {
+			setSubmitStatus({ type: 'error', message: 'Name must be at least 3 characters long and contain only letters.' });
+			setIsSubmitting(false);
+			return;
+		}
+
+		const cleanEmail = email.trim();
+		if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(cleanEmail)) {
+			setSubmitStatus({ type: 'error', message: 'Please enter a valid email address with a proper domain.' });
+			setIsSubmitting(false);
+			return;
+		}
+
+		const cleanPhone = phone.trim();
+		const digitCount = cleanPhone.replace(/\D/g, '').length;
+		if (!/^[\d\s+\-()]+$/.test(cleanPhone) || digitCount < 10 || digitCount > 15 || /^(.)\1+$/.test(cleanPhone.replace(/\D/g, ''))) {
+			setSubmitStatus({ type: 'error', message: 'Please enter a real phone number containing 10-15 digits.' });
+			setIsSubmitting(false);
+			return;
+		}
+
 		const payload = {
-			name: formData.name.trim(),
-			location: formData.location.trim(),
-			emailOrPhone: formData.emailOrPhone.trim(),
+			name: cleanName,
+			location: formData.location.trim() || 'Location pending or denied',
+			email: cleanEmail,
+			phone: cleanPhone,
 			page: typeof window !== 'undefined' ? window.location.pathname : '',
 			userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
 			createdAt: new Date().toISOString(),
@@ -118,11 +169,10 @@ function VisitorWelcomeModal({ onComplete }) {
 							<form onSubmit={handleSubmit} className="max-w-xl text-left">
 								{submitStatus.type && (
 									<div
-										className={`mb-6 p-4 rounded-lg ${
-											submitStatus.type === 'success'
+										className={`mb-6 p-4 rounded-lg ${submitStatus.type === 'success'
 												? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
 												: 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
-										}`}
+											}`}
 									>
 										<p className="text-sm font-medium">{submitStatus.message}</p>
 									</div>
@@ -146,40 +196,37 @@ function VisitorWelcomeModal({ onComplete }) {
 								</div>
 
 								<div className="mt-5">
-									<label className="block text-sm text-primary-dark dark:text-primary-light mb-2" htmlFor="visitor_location">
-										Location
+									<label className="block text-sm text-primary-dark dark:text-primary-light mb-2" htmlFor="visitor_email">
+										Email
 									</label>
 									<input
 										className="w-full px-5 py-2 border dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
-										id="visitor_location"
-										name="location"
-										type="text"
+										id="visitor_email"
+										name="email"
+										type="email"
 										required
-										placeholder="City, Country"
-										aria-label="Location"
-										value={formData.location}
+										placeholder="Email address"
+										aria-label="Email"
+										value={formData.email}
 										onChange={handleChange}
 									/>
 								</div>
 
 								<div className="mt-5">
-									<label className="block text-sm text-primary-dark dark:text-primary-light mb-2" htmlFor="visitor_contact">
-										Email or phone
+									<label className="block text-sm text-primary-dark dark:text-primary-light mb-2" htmlFor="visitor_phone">
+										Phone
 									</label>
 									<input
 										className="w-full px-5 py-2 border dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
-										id="visitor_contact"
-										name="emailOrPhone"
-										type="text"
+										id="visitor_phone"
+										name="phone"
+										type="tel"
 										required
-										placeholder="Email address or phone number"
-										aria-label="Email or phone"
-										value={formData.emailOrPhone}
+										placeholder="Phone number"
+										aria-label="Phone"
+										value={formData.phone}
 										onChange={handleChange}
 									/>
-									<p className="mt-2 text-xs text-ternary-dark dark:text-ternary-light">
-										I’ll only use this to reply if needed.
-									</p>
 								</div>
 
 								<div className="mt-6">
