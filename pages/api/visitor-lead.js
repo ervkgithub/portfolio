@@ -32,6 +32,24 @@ export default async function handler(req, res) {
 
 		const toEmail = process.env.LEAD_TO_EMAIL || process.env.EMAIL_USER || 'vijay10101992@gmail.com';
 
+		let formattedTime = createdAt || 'N/A';
+		if (createdAt) {
+			try {
+				formattedTime = new Intl.DateTimeFormat('en-IN', {
+					timeZone: 'Asia/Kolkata',
+					weekday: 'short',
+					day: '2-digit',
+					month: 'short',
+					year: 'numeric',
+					hour: '2-digit',
+					minute: '2-digit',
+					hour12: true,
+				}).format(new Date(createdAt)) + ' IST';
+			} catch (e) {
+				// Keep fallback
+			}
+		}
+
 		const emailSubject = `New Portfolio Visitor: ${name}`;
 		const emailText = `
 New Portfolio Visitor
@@ -42,7 +60,7 @@ Email: ${email}
 Phone: ${phone}
 
 Page: ${page || 'N/A'}
-Time: ${createdAt || 'N/A'}
+Time: ${formattedTime}
 User Agent: ${userAgent || 'N/A'}
 		`;
 
@@ -55,7 +73,7 @@ User Agent: ${userAgent || 'N/A'}
 					<p><strong>Email:</strong> ${email}</p>
 					<p><strong>Phone:</strong> ${phone}</p>
 					<p><strong>Page:</strong> ${page || 'N/A'}</p>
-					<p><strong>Time:</strong> ${createdAt || 'N/A'}</p>
+					<p><strong>Time:</strong> ${formattedTime}</p>
 				</div>
 				<div style="margin: 20px 0;">
 					<p style="color: #6B7280; font-size: 12px; word-break: break-word;">User Agent: ${userAgent || 'N/A'}</p>

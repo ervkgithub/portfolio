@@ -76,6 +76,61 @@ export const blogPostsData = [
     image: '/images/blog/blog7.png', // or URL to image
     readingTime: 4, // estimated reading time in minutes
     url: 'https://www.linkedin.com/pulse/performance-mastery-headless-optimizing-nextjs-sitecore-vijay-kumar-4i5mc', // Link to LinkedIn post
-  }
+  },
+  {
+    id: '8',
+    title: 'The AI Talent Shift: Why Shipping Intelligence Matters More Than Building Models in 2026',
+    excerpt: 'The AI Talent Shift: Why Shipping Intelligence Matters More Than Building Models in 2026',
+    content: 'The real demand today is not for people who can train models — it’s for engineers who can ship intelligence into production reliably, repeatedly, and at scale.',
+    date: '2026-03-31T10:00:00.000Z', // ISO date format
+    slug: 'your-post-slug',
+    image: '/images/blog/blog8.png', // or URL to image
+    readingTime: 3, // estimated reading time in minutes
+    url: 'https://www.linkedin.com/pulse/ai-talent-shift-why-shipping-intelligence-matters-more-vijay-kumar-en7jc', // Link to LinkedIn post
+  },
+  {
+    id: '9',
+    title: '🔥Human + AI: The New Engineering Partnership (Not What You Think)',
+    excerpt: 'Human + AI: The New Engineering Partnership (Not What You Think)',
+    content: 'Step 1 → Human: Define architecture Step 2 → AI: Generate code Step 3 → Human: Review deeply Step 4 → AI: Assist (tests, refactor) Step 5 → Human: Ship production-ready',
+    date: '2026-03-25T10:00:00.000Z', // ISO date format
+    slug: 'your-post-slug',
+    image: '/images/blog/blog9.png', // or URL to image
+    readingTime: 4, // estimated reading time in minutes
+    url: 'https://www.linkedin.com/pulse/human-ai-new-engineering-partnership-what-you-think-vijay-kumar-mqtac', // Link to LinkedIn post
+  },
+  {
+    id: '10',
+    title: 'AI Coding Editors in 2026: Why Reliability Matters More Than Hype — Cursor vs Antigravity Compared',
+    excerpt: 'AI Coding Editors in 2026: Why Reliability Matters More Than Hype — Cursor vs Antigravity Compared',
+    content: 'Over the last few years, AI coding tools have evolved from simple autocomplete assistants to full development companions. Editors can now refactor files, generate components, write tests, and even reason about an entire codebase.',
+    date: '2026-03-12T10:00:00.000Z', // ISO date format
+    slug: 'your-post-slug',
+    image: '/images/blog/blog10.png', // or URL to image
+    readingTime: 3, // estimated reading time in minutes
+    url: 'https://www.linkedin.com/pulse/ai-coding-editors-2026-why-reliability-matters-more-than-vijay-kumar-noobc', // Link to LinkedIn post
+  },
+  {
+    id: '11',
+    title: 'Architecting AI Workflow Automation Systems with n8n: A Developer-Centric Approach',
+    excerpt: 'Architecting AI Workflow Automation Systems with n8n: A Developer-Centric Approach',
+    content: 'Modern engineering teams are under pressure to deliver faster, operate leaner, and integrate AI capabilities without overcomplicating infrastructure. his article explores how engineers can design scalable AI-driven workflow systems using n8n.',
+    date: '2026-02-18T10:00:00.000Z', // ISO date format
+    slug: 'your-post-slug',
+    image: '/images/blog/blog11.png', // or URL to image
+    readingTime: 4, // estimated reading time in minutes
+    url: 'https://www.linkedin.com/pulse/architecting-ai-workflow-automation-systems-n8n-approach-vijay-kumar-v9xdc', // Link to LinkedIn post
+  },
+  {
+    id: '12',
+    title: 'AI Can Write Code, But Who Takes Responsibility in Production?',
+    excerpt: 'AI Can Write Code, But Who Takes Responsibility in Production?',
+    content: 'Why AI-Generated Frontend Needs Human Validation Before Shipping Today, almost every tech team is using AI in some form—ChatGPT, GitHub Copilot, Cursor, or similar tools. Development speed has increased dramatically. Features are built faster, pull requests move quicker, and shipping feels easier than ever. But along with this speed, a quiet risk is growing: production responsibility.',
+    date: '2026-01-06T10:00:00.000Z', // ISO date format
+    slug: 'your-post-slug',
+    image: '/images/blog/blog12.png', // or URL to image
+    readingTime: 3, // estimated reading time in minutes
+    url: 'https://www.linkedin.com/pulse/ai-can-write-code-who-takes-responsibility-production-vijay-kumar-rmu2c', // Link to LinkedIn post
+  },
 ];
 
