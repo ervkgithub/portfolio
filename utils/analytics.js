@@ -84,7 +84,7 @@ export const trackResumeDownload = (location = 'unknown') => {
   if (typeof window !== 'undefined') {
     sendNotification('resume_download', {
       location: location,
-      filename: 'Vijay-Resume.pdf'
+      filename: 'Vijay_Kumar_Senior_Frontend_Engineer.pdf'
     });
   }
 };
