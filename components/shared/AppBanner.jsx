@@ -62,7 +62,7 @@ function AppBanner() {
               1500,
             ]}
             wrapper="span"
-            speed={10}
+            speed={50}
             repeat={Infinity}
           />
         </motion.p>
