@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import CounterItem from './CounterItem';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, animate } from 'framer-motion';
 
 function AboutCounter() {
 	const skills = [
@@ -70,6 +70,9 @@ function AboutCounter() {
 	const [exp, setExp] = useState(0);
 	const [proj, setProj] = useState(0);
 
+	const allowScrubbingExp = useRef(false);
+	const allowScrubbingProj = useRef(false);
+
 	useEffect(() => {
 		const unsubscribeExp = smoothExp.onChange((latest) => setExp(Math.round(latest)));
 		const unsubscribeProj = smoothProj.onChange((latest) => setProj(Math.round(latest)));
@@ -80,12 +83,44 @@ function AboutCounter() {
 		};
 	}, [smoothExp, smoothProj]);
 
+	// Automatically animate to 100% when first seen on load using IntersectionObserver
+	useEffect(() => {
+		const observerEx = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting) {
+				animate(expValue, 9, { 
+					duration: 1.5, 
+					ease: "easeOut",
+					onComplete: () => allowScrubbingExp.current = true
+				});
+				observerEx.disconnect();
+			}
+		});
+		if (expRef.current) observerEx.observe(expRef.current);
+
+		const observerPr = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting) {
+				animate(projValue, 30, { 
+					duration: 1.5, 
+					ease: "easeOut",
+					onComplete: () => allowScrubbingProj.current = true
+				});
+				observerPr.disconnect();
+			}
+		});
+		if (projRef.current) observerPr.observe(projRef.current);
+
+		return () => {
+			observerEx.disconnect();
+			observerPr.disconnect();
+		};
+	}, [expValue, projValue]);
+
 	useEffect(() => {
 		const handleScroll = () => {
 			const windowHeight = window.innerHeight;
 			const scrollDistance = windowHeight / 1.5;
 
-			if (expRef.current) {
+			if (expRef.current && allowScrubbingExp.current) {
 				const rectExp = expRef.current.getBoundingClientRect();
 				let progressExp = (windowHeight - rectExp.top) / scrollDistance;
 				if (progressExp < 0) progressExp = 0;
@@ -93,7 +128,7 @@ function AboutCounter() {
 				expValue.set(progressExp * 9);
 			}
 
-			if (projRef.current) {
+			if (projRef.current && allowScrubbingProj.current) {
 				const rectProj = projRef.current.getBoundingClientRect();
 				let progressProj = (windowHeight - rectProj.top) / scrollDistance;
 				if (progressProj < 0) progressProj = 0;
@@ -103,10 +138,11 @@ function AboutCounter() {
 		};
 
 		window.addEventListener('scroll', handleScroll, { passive: true });
-		// Call immediately to set initial state based on current scroll position
 		handleScroll();
 
-		return () => window.removeEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
 	}, [expValue, projValue]);
 
 	const containerVariants = {
