@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useState } from 'react';
 import { aboutMeData } from '../../data/aboutMeData';
 import { motion } from 'framer-motion';
@@ -22,9 +22,9 @@ function AboutMeBio() {
 			>
 				<Image
 					src="/images/profile.jpg"
-					width={300}
-					height={200}
-					className="w-full h-auto lg:width-[300px] lg:height-[200px]"
+					width={400}
+					height={400}
+					className="w-full aspect-square object-cover rounded-2xl shadow-lg"
 					alt="Profile Image"
 				/>
 			</motion.div>

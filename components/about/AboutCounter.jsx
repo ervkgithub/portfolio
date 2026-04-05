@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import CounterItem from './CounterItem';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 function AboutCounter() {
 	const skills = [
@@ -60,8 +60,25 @@ function AboutCounter() {
 
 	const expRef = useRef(null);
 	const projRef = useRef(null);
+	
+	const expValue = useMotionValue(0);
+	const projValue = useMotionValue(0);
+	
+	const smoothExp = useSpring(expValue, { stiffness: 50, damping: 20 });
+	const smoothProj = useSpring(projValue, { stiffness: 50, damping: 20 });
+	
 	const [exp, setExp] = useState(0);
 	const [proj, setProj] = useState(0);
+
+	useEffect(() => {
+		const unsubscribeExp = smoothExp.onChange((latest) => setExp(Math.round(latest)));
+		const unsubscribeProj = smoothProj.onChange((latest) => setProj(Math.round(latest)));
+
+		return () => {
+			unsubscribeExp();
+			unsubscribeProj();
+		};
+	}, [smoothExp, smoothProj]);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -73,7 +90,7 @@ function AboutCounter() {
 				let progressExp = (windowHeight - rectExp.top) / scrollDistance;
 				if (progressExp < 0) progressExp = 0;
 				if (progressExp > 1) progressExp = 1;
-				setExp(Math.round(progressExp * 9));
+				expValue.set(progressExp * 9);
 			}
 
 			if (projRef.current) {
@@ -81,7 +98,7 @@ function AboutCounter() {
 				let progressProj = (windowHeight - rectProj.top) / scrollDistance;
 				if (progressProj < 0) progressProj = 0;
 				if (progressProj > 1) progressProj = 1;
-				setProj(Math.round(progressProj * 30));
+				projValue.set(progressProj * 30);
 			}
 		};
 
@@ -90,7 +107,7 @@ function AboutCounter() {
 		handleScroll();
 
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+	}, [expValue, projValue]);
 
 	const containerVariants = {
 		hidden: { opacity: 0 },

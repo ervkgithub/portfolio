@@ -27,10 +27,10 @@ const socialLinks = [
 function AppFooter() {
 	return (
 		<div className="container px-4 lg:px-10">
-			<div className="pt-10 sm:pt-14 pb-8 mt-10 border-t-2 border-primary-light dark:border-secondary-dark">
+			<div className="pt-2 pb-4 mt-4">
 				{/* Footer social links */}
 				<div className="font-general-regular flex flex-col justify-center items-center mb-4 sm:mb-0">
-					<p className="text-3xl sm:text-4xl text-primary-dark dark:text-primary-light mb-5">
+					<p className="text-3xl sm:text-4xl text-primary-dark dark:text-primary-light">
 						Follow me
 					</p>
 					<ul className="flex gap-4 sm:gap-8">
