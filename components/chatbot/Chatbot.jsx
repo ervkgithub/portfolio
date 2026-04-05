@@ -93,11 +93,11 @@ function Chatbot() {
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 					onClick={() => setIsOpen(true)}
-					className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-indigo-500 hover:bg-indigo-600 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center group"
+					className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-indigo-600 hover:bg-indigo-700 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center group"
 					aria-label="Open chatbot"
 				>
 					<FiMessageCircle className="text-xl sm:text-2xl" />
-					<span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center animate-pulse text-[10px] sm:text-xs">
+					<span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-red-600 text-white text-xs rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center animate-pulse text-[10px] sm:text-xs">
 						1
 					</span>
 				</motion.button>
@@ -113,14 +113,14 @@ function Chatbot() {
 						className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-96 h-[calc(100vh-8rem)] sm:h-[600px] max-h-[600px] bg-secondary-light dark:bg-secondary-dark rounded-lg shadow-2xl flex flex-col border border-ternary-light dark:border-ternary-dark"
 					>
 						{/* Header */}
-						<div className="bg-indigo-500 text-white p-4 rounded-t-lg flex items-center justify-between">
+						<div className="bg-indigo-600 text-white p-4 rounded-t-lg flex items-center justify-between">
 							<div className="flex items-center gap-2">
 								<div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
 								<h3 className="font-general-medium text-lg">Portfolio Assistant Vijay</h3>
 							</div>
 							<button
 								onClick={() => setIsOpen(false)}
-								className="hover:bg-indigo-600 rounded p-1 transition-colors"
+								className="hover:bg-indigo-700 rounded p-1 transition-colors"
 								aria-label="Close chatbot"
 							>
 								<FiX className="text-xl" />
@@ -139,7 +139,7 @@ function Chatbot() {
 									<div
 										className={`max-w-[80%] rounded-lg p-3 ${
 											message.sender === 'user'
-												? 'bg-indigo-500 text-white'
+												? 'bg-indigo-600 text-white'
 												: 'bg-white dark:bg-primary-dark text-primary-dark dark:text-ternary-light'
 										}`}
 									>
@@ -215,7 +215,7 @@ function Chatbot() {
 								<button
 									onClick={handleSendMessage}
 									disabled={!inputValue.trim() || isTyping}
-									className="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+									className="bg-indigo-600 hover:bg-indigo-700 text-white p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
 									aria-label="Send message"
 								>
 									<FiSend className="text-xl" />

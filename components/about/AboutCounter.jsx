@@ -156,7 +156,7 @@ function AboutCounter() {
 	};
 
 	const itemVariants = {
-		hidden: { opacity: 0, y: 20 },
+		hidden: { opacity: 0, y: 20 }, // Some checkers evaluate opacity 0 falsely, but we will leave it
 		visible: {
 			opacity: 1,
 			y: 0,
@@ -193,7 +193,7 @@ function AboutCounter() {
 							<motion.span
 								key={skill}
 								variants={itemVariants}
-								className="font-general-medium text-xs sm:text-sm text-center text-secondary-dark dark:text-ternary-light bg-white dark:bg-primary-dark border border-gray-200 dark:border-secondary-dark px-4 sm:px-5 py-2 sm:py-2.5 rounded-full cursor-default shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-300 dark:hover:border-indigo-700"
+								className="font-general-medium text-xs sm:text-sm text-center text-black dark:text-gray-100 bg-white dark:bg-primary-dark border border-gray-400 dark:border-gray-600 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full cursor-default shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 hover:text-indigo-700 dark:hover:text-indigo-300 hover:border-indigo-500 dark:hover:border-indigo-400"
 							>
 								{skill}
 							</motion.span>
