@@ -3,6 +3,7 @@ import Button from '../reusable/Button';
 import FormInput from '../reusable/FormInput';
 import { sendEmail } from '../../utils/emailService';
 import { trackContactSubmit } from '../../utils/analytics';
+import { motion } from 'framer-motion';
 
 function ContactForm() {
 	const [formData, setFormData] = useState({
@@ -66,7 +67,13 @@ function ContactForm() {
 	};
 
 	return (
-		<div className="w-full lg:w-1/2">
+		<motion.div 
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.5 }}
+			className="w-full lg:w-1/2"
+		>
 			<div className="leading-loose">
 				<form
 					onSubmit={handleSubmit}
@@ -154,7 +161,7 @@ function ContactForm() {
 					</div>
 				</form>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 

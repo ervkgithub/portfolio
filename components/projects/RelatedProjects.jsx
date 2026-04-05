@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { projectsData } from '../../data/projectsData';
 import PropTypes from 'prop-types';
@@ -33,22 +33,19 @@ function RelatedProjects({ currentProjectId }) {
 	}
 
 	return (
-		<div className="mt-10 pt-10 sm:pt-14 sm:mt-20 border-t-2 border-primary-light dark:border-secondary-dark">
-			<p className="font-general-regular text-primary-dark dark:text-primary-light text-3xl font-bold mb-10 sm:mb-14 text-left">
+        <div className="mt-10 pt-10 sm:pt-14 sm:mt-20 border-t-2 border-primary-light dark:border-secondary-dark">
+            <p className="font-general-regular text-primary-dark dark:text-primary-light text-3xl font-bold mb-10 sm:mb-14 text-left">
 				Related Projects
 			</p>
-
-			<div className="grid grid-cols-1 sm:grid-cols-4 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-10">
 				{shuffledProjects.map((project, index) => {
 					return (
-						<Link
-							key={`${project.id}-${index}`}
-							href="/projects/[id]"
-							as={`/projects/${project.id}`}
-							aria-label="Related Project"
-							passHref
-						>
-							<div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer bg-secondary-light dark:bg-ternary-dark h-full flex flex-col">
+                        <Link
+                            key={`${project.id}-${index}`}
+                            href="/projects/[id]"
+                            as={`/projects/${project.id}`}
+                            aria-label="Related Project">
+                            <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer bg-secondary-light dark:bg-ternary-dark h-full flex flex-col">
 								<div className="relative w-full h-[432px] overflow-hidden">
 									<Image
 										src={project.img}
@@ -67,12 +64,12 @@ function RelatedProjects({ currentProjectId }) {
 									</span>
 								</div>
 							</div>
-						</Link>
-					);
+                        </Link>
+                    );
 				})}
 			</div>
-		</div>
-	);
+        </div>
+    );
 }
 
 RelatedProjects.propTypes = {

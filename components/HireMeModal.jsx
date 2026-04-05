@@ -94,7 +94,13 @@ function HireMeModal({ onClose, onRequest }) {
 			{/* Modal Content */}
 			<main className="flex flex-col items-center justify-center h-full w-full">
 				<div className="modal-wrapper flex items-center z-30">
-					<div className="modal max-w-md mx-5 xl:max-w-xl lg:max-w-xl md:max-w-xl bg-secondary-light dark:bg-primary-dark max-h-screen shadow-lg flex-row rounded-lg relative">
+					<motion.div 
+						initial={{ opacity: 0, scale: 0.9, y: 20 }}
+						animate={{ opacity: 1, scale: 1, y: 0 }}
+						exit={{ opacity: 0, scale: 0.9, y: 20 }}
+						transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+						className="modal max-w-md mx-5 xl:max-w-xl lg:max-w-xl md:max-w-xl bg-secondary-light dark:bg-primary-dark max-h-screen shadow-lg flex-row rounded-lg relative"
+					>
 						<div className="modal-header flex justify-between gap-10 p-5 border-b border-ternary-light dark:border-ternary-dark">
 							<h5 className=" text-primary-dark dark:text-primary-light text-xl">
 								What project are you looking for?
@@ -209,7 +215,7 @@ function HireMeModal({ onClose, onRequest }) {
 								<Button title="Close" />
 							</span>
 						</div>
-					</div>
+					</motion.div>
 				</div>
 			</main>
 		</motion.div>

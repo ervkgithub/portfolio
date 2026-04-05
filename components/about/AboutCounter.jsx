@@ -1,10 +1,8 @@
-import { useCountUp } from 'react-countup';
+import { useRef, useState, useEffect } from 'react';
 import CounterItem from './CounterItem';
 import { motion } from 'framer-motion';
 
 function AboutCounter() {
-	useCountUp({ ref: 'experienceCounter', end: 9, duration: 2 });
-	useCountUp({ ref: 'projectsCounter', end: 30, duration: 2 });
 	const skills = [
 		'Next.js',
 		'React.js',
@@ -43,8 +41,56 @@ function AboutCounter() {
 		'SEO',
 		'HTML5',
 		'CSS3',
-
+		'Redux',
+		'Redux Toolkit',
+		'Azure Devops',
+		'Jira',
+		'Webpack/Gulp/Vite',
+		'Cross-Browser Compatibility',
+		'PWA',
+		'Version Control (Git, Bitbucket)',
+		'UI Best Practices',
+		'API Integration',
+		'GraphQl, REST API',
+		'JQuery',
+		'Code Review',
+		'Mentoring',
+		'Framer Motion',
 	];
+
+	const expRef = useRef(null);
+	const projRef = useRef(null);
+	const [exp, setExp] = useState(0);
+	const [proj, setProj] = useState(0);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const windowHeight = window.innerHeight;
+			const scrollDistance = windowHeight / 1.5;
+
+			if (expRef.current) {
+				const rectExp = expRef.current.getBoundingClientRect();
+				let progressExp = (windowHeight - rectExp.top) / scrollDistance;
+				if (progressExp < 0) progressExp = 0;
+				if (progressExp > 1) progressExp = 1;
+				setExp(Math.round(progressExp * 9));
+			}
+
+			if (projRef.current) {
+				const rectProj = projRef.current.getBoundingClientRect();
+				let progressProj = (windowHeight - rectProj.top) / scrollDistance;
+				if (progressProj < 0) progressProj = 0;
+				if (progressProj > 1) progressProj = 1;
+				setProj(Math.round(progressProj * 30));
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		// Call immediately to set initial state based on current scroll position
+		handleScroll();
+
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
 
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -71,10 +117,10 @@ function AboutCounter() {
 	return (
 		<div className="mt-10 sm:mt-20 bg-primary-light dark:bg-ternary-dark shadow-sm">
 			<div className="font-general-medium container mx-auto px-4 lg:px-10 py-10 lg:py-20 flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-4">
-				<div className="flex-shrink-0">
+				<div ref={expRef} className="flex-shrink-0">
 					<CounterItem
 						title="Years of experience"
-						counter={<span id="experienceCounter" />}
+						counter={<span>{exp}</span>}
 						measurement="+"
 					/>
 				</div>
@@ -102,10 +148,10 @@ function AboutCounter() {
 					</motion.div>
 				</div>
 
-				<div className="flex-shrink-0">
+				<div ref={projRef} className="flex-shrink-0">
 					<CounterItem
 						title="Projects completed"
-						counter={<span id="projectsCounter" />}
+						counter={<span>{proj}</span>}
 						measurement="+"
 					/>
 				</div>

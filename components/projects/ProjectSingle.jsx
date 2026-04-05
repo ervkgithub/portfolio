@@ -1,26 +1,25 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 const ProjectSingle = (props) => {
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1, delay: 1 }}
+        <motion.div
+			initial={{ opacity: 0, y: 30 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
 			transition={{
 				ease: 'easeInOut',
-				duration: 0.7,
-				delay: 0.15,
+				duration: 0.5,
 			}}
+			whileHover={{ y: -5 }}
 			className="h-full"
 		>
-			<Link
-				href="/projects/[id]"
-				as={'/projects/' + props.id}
-				aria-label="Single Project"
-				passHref
-			>
+            <Link
+                href="/projects/[id]"
+                as={'/projects/' + props.id}
+                aria-label="Single Project">
 				<div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark h-full flex flex-col">
 					<div className="relative w-full h-96 overflow-hidden">
 						<Image
@@ -41,8 +40,8 @@ const ProjectSingle = (props) => {
 					</div>
 				</div>
 			</Link>
-		</motion.div>
-	);
+        </motion.div>
+    );
 };
 
 ProjectSingle.propTypes = {

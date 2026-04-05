@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { FiArrowRight, FiCalendar, FiClock, FiExternalLink } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { blogPostsData } from '../../data/blogPostsData';
 
 export default function Blog() {

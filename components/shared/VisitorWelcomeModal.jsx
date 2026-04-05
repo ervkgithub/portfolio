@@ -180,7 +180,7 @@ function VisitorWelcomeModal({ onComplete }) {
 								Welcome to My Portfolio! 👋
 							</h5>
 							<p className="mt-2 text-sm text-ternary-dark dark:text-ternary-light leading-relaxed pr-8">
-								I'm thrilled you're here. Feel free to drop your details below so we can stay connected, or simply close this to explore my world.
+								I&apos;m thrilled you&apos;re here. Feel free to drop your details below so we can stay connected, or simply close this to explore my world.
 							</p>
 						</div>
 

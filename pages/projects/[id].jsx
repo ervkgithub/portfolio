@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FiClock, FiTag } from "react-icons/fi";
 import PropTypes from "prop-types";
 import PagesMetaHead from "../../components/PagesMetaHead";
