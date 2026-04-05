@@ -144,6 +144,16 @@ function VisitorWelcomeModal({ onComplete }) {
 		}
 	};
 
+	const handleSkip = () => {
+		const payload = { name: 'Guest', skipped: true };
+		try {
+			localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+		} catch {
+			// ignore
+		}
+		if (onComplete) onComplete(payload);
+	};
+
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -155,13 +165,22 @@ function VisitorWelcomeModal({ onComplete }) {
 			<main className="flex flex-col items-center justify-center h-full w-full">
 				<div className="modal-wrapper flex items-center z-30">
 					<div className="modal max-w-md mx-5 xl:max-w-xl lg:max-w-xl md:max-w-xl bg-secondary-light dark:bg-primary-dark max-h-screen shadow-lg flex-row rounded-lg relative">
-						<div className="modal-header p-6 border-b border-ternary-light dark:border-ternary-dark">
-							<h5 className="text-primary-dark dark:text-primary-light text-xl">
-								Welcome — quick intro
+						<div className="modal-header p-6 border-b border-ternary-light dark:border-ternary-dark relative">
+							<button
+								onClick={handleSkip}
+								className="absolute top-4 right-4 text-ternary-dark dark:text-ternary-light hover:bg-gray-200 dark:hover:bg-secondary-dark p-1.5 rounded-full transition-colors focus:ring-2 focus:ring-indigo-500 outline-none"
+								aria-label="Close modal"
+								type="button"
+							>
+								<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+								</svg>
+							</button>
+							<h5 className="text-primary-dark dark:text-primary-light text-xl font-semibold">
+								Welcome to My Portfolio! 👋
 							</h5>
-							<p className="mt-2 text-sm text-ternary-dark dark:text-ternary-light leading-relaxed">
-								To personalize your experience and help me understand who is viewing the profile, please share your details.
-								It takes less than a minute.
+							<p className="mt-2 text-sm text-ternary-dark dark:text-ternary-light leading-relaxed pr-8">
+								I'm thrilled you're here. Feel free to drop your details below so we can stay connected, or simply close this to explore my world.
 							</p>
 						</div>
 
@@ -170,8 +189,8 @@ function VisitorWelcomeModal({ onComplete }) {
 								{submitStatus.type && (
 									<div
 										className={`mb-6 p-4 rounded-lg ${submitStatus.type === 'success'
-												? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
-												: 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
+											? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
+											: 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
 											}`}
 									>
 										<p className="text-sm font-medium">{submitStatus.message}</p>
